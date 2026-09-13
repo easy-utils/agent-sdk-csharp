@@ -5,6 +5,10 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <RootNamespace>Agentsdk</RootNamespace>
+    <PackageId>AgentSdkCsharp</PackageId>
+    <Version>0.13.0</Version>
+    <Authors>EasyLab</Authors>
+    <Description>Typed .NET client for the agent.v1 backend over easy-rpc.</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.29.3" />
