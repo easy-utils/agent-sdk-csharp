@@ -6,7 +6,7 @@
     <LangVersion>latest</LangVersion>
     <RootNamespace>Agentsdk</RootNamespace>
     <PackageId>AgentSdkCsharp</PackageId>
-    <Version>0.13.0</Version>
+    <Version>0.13.1</Version>
     <Authors>EasyLab</Authors>
     <Description>Typed .NET client for the agent.v1 backend over easy-rpc.</Description>
   </PropertyGroup>
