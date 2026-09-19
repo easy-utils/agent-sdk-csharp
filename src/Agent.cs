@@ -25,334 +25,273 @@ namespace Easyrpc.Agent.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRhZ2VudC92MS9hZ2VudC5wcm90bxIIYWdlbnQudjEaHGdvb2dsZS9wcm90",
-            "b2J1Zi9zdHJ1Y3QucHJvdG8i1wUKB1Nlc3Npb24SEgoEbmFtZRgBIAEoCVIE",
-            "bmFtZRIUCgVtb2RlbBgCIAEoCVIFbW9kZWwSFgoGcHJlc2V0GAMgASgJUgZw",
-            "cmVzZXQSFQoGdGlwX2lkGAQgASgJUgV0aXBJZBIbCgltYXhfdHVybnMYBSAB",
-            "KAVSCG1heFR1cm5zEiMKDXN5c3RlbV9wcm9tcHQYBiABKAlSDHN5c3RlbVBy",
-            "b21wdBIhCgxpbnB1dF90b2tlbnMYByABKAVSC2lucHV0VG9rZW5zEiMKDW91",
-            "dHB1dF90b2tlbnMYCCABKAVSDG91dHB1dFRva2VucxIhCgx0b3RhbF90b2tl",
-            "bnMYCSABKAVSC3RvdGFsVG9rZW5zEioKEWxhc3RfaW5wdXRfdG9rZW5zGAog",
-            "ASgFUg9sYXN0SW5wdXRUb2tlbnMSLAoSbGFzdF9vdXRwdXRfdG9rZW5zGAsg",
-            "ASgFUhBsYXN0T3V0cHV0VG9rZW5zEh0KCmNyZWF0ZWRfYXQYDCABKAlSCWNy",
-            "ZWF0ZWRBdBIdCgp1cGRhdGVkX2F0GA0gASgJUgl1cGRhdGVkQXQSIAoMbGFz",
-            "dF91c2VkX2F0GA4gASgJUgpsYXN0VXNlZEF0EhYKBmxvY2FsZRgPIAEoCVIG",
-            "bG9jYWxlEhAKA29yZxgQIAEoCVIDb3JnEhIKBHJlcG8YESABKAlSBHJlcG8S",
-            "FgoGYnJhbmNoGBIgASgJUgZicmFuY2gSIQoMdW5yZWFkX2NvdW50GBMgASgF",
-            "Ugt1bnJlYWRDb3VudBImCg9sYXN0X21lc3NhZ2VfYXQYFCABKAlSDWxhc3RN",
-            "ZXNzYWdlQXQSMAoUbGFzdF9tZXNzYWdlX3ByZXZpZXcYFSABKAlSEmxhc3RN",
-            "ZXNzYWdlUHJldmlldxIYCgd2YXJpYW50GBYgASgJUgd2YXJpYW50Eh8KC21l",
-            "c3NhZ2Vfc2VxGBcgASgFUgptZXNzYWdlU2VxIosBCgdNZXNzYWdlEg4KAmlk",
-            "GAEgASgJUgJpZBISCgRyb2xlGAIgASgJUgRyb2xlEhcKB3ByZXZfaWQYAyAB",
-            "KAlSBnByZXZJZBIdCgpjcmVhdGVkX2F0GAQgASgJUgljcmVhdGVkQXQSJAoF",
-            "cGFydHMYBSADKAsyDi5hZ2VudC52MS5QYXJ0UgVwYXJ0cyJvCgRQYXJ0Eg4K",
-            "AmlkGAEgASgJUgJpZBIdCgptZXNzYWdlX2lkGAIgASgJUgltZXNzYWdlSWQS",
-            "EgoEdHlwZRgDIAEoCVIEdHlwZRIQCgNzZXEYBCABKAVSA3NlcRISCgRkYXRh",
-            "GAUgASgJUgRkYXRhIoMCCgxNYWlsYm94RW50cnkSDgoCaWQYASABKAlSAmlk",
-            "EiEKDHNlc3Npb25fbmFtZRgCIAEoCVILc2Vzc2lvbk5hbWUSGQoIbXNnX3R5",
-            "cGUYAyABKAlSB21zZ1R5cGUSGAoHcGF5bG9hZBgEIAEoCVIHcGF5bG9hZBIh",
-            "CgxlZmZlY3RpdmVfYXQYBSABKAlSC2VmZmVjdGl2ZUF0EhYKBnN0YXR1cxgG",
-            "IAEoCVIGc3RhdHVzEh0KCmNyZWF0ZWRfYXQYByABKAlSCWNyZWF0ZWRBdBIf",
-            "Cgtjb25zdW1lZF9hdBgIIAEoCVIKY29uc3VtZWRBdBIQCgNzZXEYCSABKANS",
-            "A3NlcSK7AQoGUHJlc2V0Eg4KAmlkGAEgASgJUgJpZBIjCg1zeXN0ZW1fcHJv",
-            "bXB0GAIgASgJUgxzeXN0ZW1Qcm9tcHQSLAoSc3lzdGVtX3Byb21wdF9pMThu",
-            "GAMgASgJUhBzeXN0ZW1Qcm9tcHRJMThuEhQKBXRvb2xzGAQgAygJUgV0b29s",
-            "cxIbCgltYXhfdHVybnMYBSABKAVSCG1heFR1cm5zEhsKCWlzX3N5c3RlbRgG",
-            "IAEoCFIIaXNTeXN0ZW0iwQIKCFByb3ZpZGVyEh8KC3Byb3ZpZGVyX2lkGAEg",
-            "ASgJUgpwcm92aWRlcklkEhkKCGFwaV90eXBlGAIgASgJUgdhcGlUeXBlEhkK",
-            "CGJhc2VfdXJsGAMgASgJUgdiYXNlVXJsEhcKB2FwaV9rZXkYBCABKAlSBmFw",
-            "aUtleRI5CgdoZWFkZXJzGAUgAygLMh8uYWdlbnQudjEuUHJvdmlkZXIuSGVh",
-            "ZGVyc0VudHJ5UgdoZWFkZXJzEi8KBm1vZGVscxgGIAMoCzIXLmFnZW50LnYx",
-            "LlByb3ZpZGVyTW9kZWxSBm1vZGVscxIdCgp1cGRhdGVkX2F0GAcgASgJUgl1",
-            "cGRhdGVkQXQaOgoMSGVhZGVyc0VudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQK",
-            "BXZhbHVlGAIgASgJUgV2YWx1ZToCOAEidwoNUHJvdmlkZXJNb2RlbBIOCgJp",
-            "ZBgBIAEoCVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIjCg1jb250ZXh0X2xp",
-            "bWl0GAMgASgDUgxjb250ZXh0TGltaXQSHQoKbW9kZWxfdHlwZRgEIAEoCVIJ",
-            "bW9kZWxUeXBlIv4BCghUb29sSW5mbxISCgRuYW1lGAEgASgJUgRuYW1lEiAK",
-            "C2Rlc2NyaXB0aW9uGAIgASgJUgtkZXNjcmlwdGlvbhIaCghjYXRlZ29yeRgD",
-            "IAEoCVIIY2F0ZWdvcnkSNwoKcGFyYW1ldGVycxgEIAEoCzIXLmdvb2dsZS5w",
-            "cm90b2J1Zi5TdHJ1Y3RSCnBhcmFtZXRlcnMSPgoNY29uZmlnX2ZpZWxkcxgF",
-            "IAMoCzIZLmFnZW50LnYxLlRvb2xDb25maWdGaWVsZFIMY29uZmlnRmllbGRz",
-            "EicKD3JlcXVpcmVkX2NvbmZpZxgGIAMoCVIOcmVxdWlyZWRDb25maWcixAEK",
-            "D1Rvb2xDb25maWdGaWVsZBISCgRuYW1lGAEgASgJUgRuYW1lEhIKBHR5cGUY",
-            "AiABKAlSBHR5cGUSHwoLZW51bV92YWx1ZXMYAyADKAlSCmVudW1WYWx1ZXMS",
-            "MAoHZGVmYXVsdBgGIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5WYWx1ZVIHZGVm",
-            "YXVsdBIgCgtkZXNjcmlwdGlvbhgHIAEoCVILZGVzY3JpcHRpb24SFAoFc2Nv",
-            "cGUYCCABKAlSBXNjb3BlIpkBCgpUb29sQ29uZmlnEjgKBnZhbHVlcxgBIAMo",
-            "CzIgLmFnZW50LnYxLlRvb2xDb25maWcuVmFsdWVzRW50cnlSBnZhbHVlcxpR",
-            "CgtWYWx1ZXNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIsCgV2YWx1ZRgCIAEo",
-            "CzIWLmdvb2dsZS5wcm90b2J1Zi5WYWx1ZVIFdmFsdWU6AjgBIrEBCg5Qcm9t",
-            "cHRSZXNwb25zZRIUCgVldmVudBgBIAEoCVIFZXZlbnQSPAoGcGFyYW1zGAIg",
-            "AygLMiQuYWdlbnQudjEuUHJvbXB0UmVzcG9uc2UuUGFyYW1zRW50cnlSBnBh",
-            "cmFtcxIQCgNlaWQYAyABKAlSA2VpZBo5CgtQYXJhbXNFbnRyeRIQCgNrZXkY",
-            "ASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgBIjsKE1dhdGNo",
-            "U2Vzc2lvblJlcXVlc3QSDgoCaWQYASABKAlSAmlkEhQKBXNpbmNlGAIgASgJ",
-            "UgVzaW5jZSJvChRXYXRjaFNlc3Npb25SZXNwb25zZRIUCgVldmVudBgBIAEo",
-            "CVIFZXZlbnQSLwoGcGFyYW1zGAIgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0",
-            "cnVjdFIGcGFyYW1zEhAKA2VpZBgDIAEoCVIDZWlkIhYKFFdhdGNoU2Vzc2lv",
-            "bnNSZXF1ZXN0InoKFVdhdGNoU2Vzc2lvbnNSZXNwb25zZRIrCgd1cHNlcnRz",
-            "GAEgAygLMhEuYWdlbnQudjEuU2Vzc2lvblIHdXBzZXJ0cxIYCgdyZW1vdmVk",
-            "GAIgAygJUgdyZW1vdmVkEhoKCHNuYXBzaG90GAMgASgIUghzbmFwc2hvdCJZ",
-            "CgdGaWxlUmVmEhIKBGNvZGUYASABKAlSBGNvZGUSEgoEbmFtZRgCIAEoCVIE",
-            "bmFtZRISCgRtaW1lGAMgASgJUgRtaW1lEhIKBHNpemUYBCABKAVSBHNpemUi",
-            "FQoTTGlzdFNlc3Npb25zUmVxdWVzdCJFChRMaXN0U2Vzc2lvbnNSZXNwb25z",
-            "ZRItCghzZXNzaW9ucxgBIAMoCzIRLmFnZW50LnYxLlNlc3Npb25SCHNlc3Np",
-            "b25zIrABChRDcmVhdGVTZXNzaW9uUmVxdWVzdBISCgRuYW1lGAEgASgJUgRu",
-            "YW1lEhQKBW1vZGVsGAIgASgJUgVtb2RlbBIWCgZwcmVzZXQYAyABKAlSBnBy",
-            "ZXNldBIQCgNvcmcYBCABKAlSA29yZxISCgRyZXBvGAUgASgJUgRyZXBvEhYK",
-            "BmJyYW5jaBgGIAEoCVIGYnJhbmNoEhgKB3ZhcmlhbnQYByABKAlSB3Zhcmlh",
-            "bnQiSgoVQ3JlYXRlU2Vzc2lvblJlc3BvbnNlEg4KAm9rGAEgASgIUgJvaxIh",
-            "CgxzZXNzaW9uX25hbWUYAiABKAlSC3Nlc3Npb25OYW1lIiMKEUdldFNlc3Np",
-            "b25SZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZCJBChJHZXRTZXNzaW9uUmVzcG9u",
-            "c2USKwoHc2Vzc2lvbhgBIAEoCzIRLmFnZW50LnYxLlNlc3Npb25SB3Nlc3Np",
-            "b24iJgoURGVsZXRlU2Vzc2lvblJlcXVlc3QSDgoCaWQYASABKAlSAmlkIicK",
-            "FURlbGV0ZVNlc3Npb25SZXNwb25zZRIOCgJvaxgBIAEoCFICb2siaQoTTGlz",
-            "dE1lc3NhZ2VzUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSFAoFbGltaXQYAiAB",
-            "KAVSBWxpbWl0EhYKBmJlZm9yZRgDIAEoCVIGYmVmb3JlEhQKBWFmdGVyGAQg",
-            "ASgJUgVhZnRlciKEAQoUTGlzdE1lc3NhZ2VzUmVzcG9uc2USDgoCb2sYASAB",
-            "KAhSAm9rEi0KCG1lc3NhZ2VzGAIgAygLMhEuYWdlbnQudjEuTWVzc2FnZVII",
-            "bWVzc2FnZXMSFgoGcmVzeW5jGAMgASgIUgZyZXN5bmMSFQoGdGlwX2lkGAQg",
-            "ASgJUgV0aXBJZCJsCg1Qcm9tcHRSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZBIW",
-            "CgZwcm9tcHQYAiABKAlSBnByb21wdBIzCgthdHRhY2htZW50cxgDIAMoCzIR",
-            "LmFnZW50LnYxLkZpbGVSZWZSC2F0dGFjaG1lbnRzImgKC0ZvcmtSZXF1ZXN0",
-            "Eg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEh0KCm1lc3Nh",
-            "Z2VfaWQYAyABKAlSCW1lc3NhZ2VJZBIWCgZwcmVzZXQYBCABKAlSBnByZXNl",
-            "dCI7CgxGb3JrUmVzcG9uc2USKwoHc2Vzc2lvbhgBIAEoCzIRLmFnZW50LnYx",
-            "LlNlc3Npb25SB3Nlc3Npb24iMwoNUmVuYW1lUmVxdWVzdBIOCgJpZBgBIAEo",
-            "CVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZSI9Cg5SZW5hbWVSZXNwb25zZRIr",
-            "CgdzZXNzaW9uGAEgASgLMhEuYWdlbnQudjEuU2Vzc2lvblIHc2Vzc2lvbiJR",
-            "Cg9TZXRNb2RlbFJlcXVlc3QSDgoCaWQYASABKAlSAmlkEhQKBW1vZGVsGAIg",
-            "ASgJUgVtb2RlbBIYCgd2YXJpYW50GAMgASgJUgd2YXJpYW50Ij8KEFNldE1v",
-            "ZGVsUmVzcG9uc2USKwoHc2Vzc2lvbhgBIAEoCzIRLmFnZW50LnYxLlNlc3Np",
-            "b25SB3Nlc3Npb24iPAoLVW5kb1JlcXVlc3QSDgoCaWQYASABKAlSAmlkEh0K",
-            "Cm1lc3NhZ2VfaWQYAiABKAlSCW1lc3NhZ2VJZCI7CgxVbmRvUmVzcG9uc2US",
-            "KwoHc2Vzc2lvbhgBIAEoCzIRLmFnZW50LnYxLlNlc3Npb25SB3Nlc3Npb24i",
-            "HgoMU3RhdGVSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZCI+Cg1TdGF0ZVJlc3Bv",
-            "bnNlEi0KBXN0YXRlGAEgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdFIF",
-            "c3RhdGUiIAoOTWFpbGJveFJlcXVlc3QSDgoCaWQYASABKAlSAmlkIlMKD01h",
-            "aWxib3hSZXNwb25zZRIOCgJvaxgBIAEoCFICb2sSMAoHbWFpbGJveBgCIAMo",
-            "CzIWLmFnZW50LnYxLk1haWxib3hFbnRyeVIHbWFpbGJveCLcAQoVVXBkYXRl",
-            "U2V0dGluZ3NSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZBIUCgVtb2RlbBgCIAEo",
-            "CVIFbW9kZWwSFgoGcHJlc2V0GAMgASgJUgZwcmVzZXQSIAoJbWF4X3R1cm5z",
-            "GAQgASgFSABSCG1heFR1cm5ziAEBEiMKDXN5c3RlbV9wcm9tcHQYBSABKAlS",
-            "DHN5c3RlbVByb21wdBIWCgZsb2NhbGUYBiABKAlSBmxvY2FsZRIYCgd2YXJp",
-            "YW50GAcgASgJUgd2YXJpYW50QgwKCl9tYXhfdHVybnMiRQoWVXBkYXRlU2V0",
-            "dGluZ3NSZXNwb25zZRIrCgdzZXNzaW9uGAEgASgLMhEuYWdlbnQudjEuU2Vz",
-            "c2lvblIHc2Vzc2lvbiIiChBJbnRlcnJ1cHRSZXF1ZXN0Eg4KAmlkGAEgASgJ",
-            "UgJpZCJFChFJbnRlcnJ1cHRSZXNwb25zZRIOCgJvaxgBIAEoCFICb2sSIAoL",
-            "aW50ZXJydXB0ZWQYAiABKAhSC2ludGVycnVwdGVkIiAKDkNvbXBhY3RSZXF1",
-            "ZXN0Eg4KAmlkGAEgASgJUgJpZCIhCg9Db21wYWN0UmVzcG9uc2USDgoCb2sY",
-            "ASABKAhSAm9rIhYKFExpc3RQcm92aWRlcnNSZXF1ZXN0IkkKFUxpc3RQcm92",
-            "aWRlcnNSZXNwb25zZRIwCglwcm92aWRlcnMYASADKAsyEi5hZ2VudC52MS5Q",
-            "cm92aWRlclIJcHJvdmlkZXJzIh0KG0xpc3RQcm92aWRlcnNDYXRhbG9nUmVx",
-            "dWVzdCLMAQocTGlzdFByb3ZpZGVyc0NhdGFsb2dSZXNwb25zZRJTCglwcm92",
-            "aWRlcnMYASADKAsyNS5hZ2VudC52MS5MaXN0UHJvdmlkZXJzQ2F0YWxvZ1Jl",
-            "c3BvbnNlLlByb3ZpZGVyc0VudHJ5Uglwcm92aWRlcnMaVwoOUHJvdmlkZXJz",
-            "RW50cnkSEAoDa2V5GAEgASgJUgNrZXkSLwoFdmFsdWUYAiABKAsyGS5hZ2Vu",
-            "dC52MS5DYXRhbG9nUHJvdmlkZXJSBXZhbHVlOgI4ASL9AQoPQ2F0YWxvZ1By",
-            "b3ZpZGVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEhAK",
-            "A2FwaRgDIAEoCVIDYXBpEhAKA25wbRgEIAEoCVIDbnBtEhAKA2VudhgFIAMo",
-            "CVIDZW52Ej0KBm1vZGVscxgGIAMoCzIlLmFnZW50LnYxLkNhdGFsb2dQcm92",
-            "aWRlci5Nb2RlbHNFbnRyeVIGbW9kZWxzGlEKC01vZGVsc0VudHJ5EhAKA2tl",
-            "eRgBIAEoCVIDa2V5EiwKBXZhbHVlGAIgASgLMhYuZ29vZ2xlLnByb3RvYnVm",
-            "LlZhbHVlUgV2YWx1ZToCOAEiSQoXUmVnaXN0ZXJQcm92aWRlclJlcXVlc3QS",
-            "LgoIcHJvdmlkZXIYASABKAsyEi5hZ2VudC52MS5Qcm92aWRlclIIcHJvdmlk",
-            "ZXIiKgoYUmVnaXN0ZXJQcm92aWRlclJlc3BvbnNlEg4KAm9rGAEgASgIUgJv",
-            "ayKZAgocRGlzY292ZXJHYXRld2F5TW9kZWxzUmVxdWVzdBIfCgtwcm92aWRl",
-            "cl9pZBgBIAEoCVIKcHJvdmlkZXJJZBIZCghhcGlfdHlwZRgCIAEoCVIHYXBp",
-            "VHlwZRIZCghiYXNlX3VybBgDIAEoCVIHYmFzZVVybBIXCgdhcGlfa2V5GAQg",
-            "ASgJUgZhcGlLZXkSTQoHaGVhZGVycxgFIAMoCzIzLmFnZW50LnYxLkRpc2Nv",
-            "dmVyR2F0ZXdheU1vZGVsc1JlcXVlc3QuSGVhZGVyc0VudHJ5UgdoZWFkZXJz",
-            "GjoKDEhlYWRlcnNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgC",
-            "IAEoCVIFdmFsdWU6AjgBInYKHURpc2NvdmVyR2F0ZXdheU1vZGVsc1Jlc3Bv",
-            "bnNlEg4KAm9rGAEgASgIUgJvaxIUCgVlcnJvchgCIAEoCVIFZXJyb3ISLwoG",
-            "bW9kZWxzGAMgAygLMhcuYWdlbnQudjEuUHJvdmlkZXJNb2RlbFIGbW9kZWxz",
-            "IjgKFURlbGV0ZVByb3ZpZGVyUmVxdWVzdBIfCgtwcm92aWRlcl9pZBgBIAEo",
-            "CVIKcHJvdmlkZXJJZCIoChZEZWxldGVQcm92aWRlclJlc3BvbnNlEg4KAm9r",
-            "GAEgASgIUgJvayLVAQoTVGVzdFByb3ZpZGVyUmVxdWVzdBIfCgtwcm92aWRl",
-            "cl9pZBgBIAEoCVIKcHJvdmlkZXJJZBIZCghhcGlfdHlwZRgCIAEoCVIHYXBp",
-            "VHlwZRIZCghiYXNlX3VybBgDIAEoCVIHYmFzZVVybBIXCgdhcGlfa2V5GAQg",
-            "ASgJUgZhcGlLZXkSFAoFbW9kZWwYBSABKAlSBW1vZGVsEhgKB3ZhcmlhbnQY",
-            "BiABKAlSB3ZhcmlhbnQSHgoKY2FwYWJpbGl0eRgHIAEoCVIKY2FwYWJpbGl0",
-            "eSI+ChRUZXN0UHJvdmlkZXJSZXNwb25zZRIOCgJvaxgBIAEoCFICb2sSFgoG",
-            "cmVzdWx0GAIgASgJUgZyZXN1bHQiNAoRTGlzdE1vZGVsc1JlcXVlc3QSHwoL",
-            "cHJvdmlkZXJfaWQYASABKAlSCnByb3ZpZGVySWQiQQoSTGlzdE1vZGVsc1Jl",
-            "c3BvbnNlEisKBm1vZGVscxgBIAMoCzITLmFnZW50LnYxLk1vZGVsSW5mb1IG",
-            "bW9kZWxzIogBCglNb2RlbEluZm8SDgoCaWQYASABKAlSAmlkEhIKBG5hbWUY",
-            "AiABKAlSBG5hbWUSMgoIdmFyaWFudHMYAyADKAsyFi5hZ2VudC52MS5Nb2Rl",
-            "bFZhcmlhbnRSCHZhcmlhbnRzEiMKDWNvbnRleHRfbGltaXQYBCABKANSDGNv",
-            "bnRleHRMaW1pdCJUCgxNb2RlbFZhcmlhbnQSDgoCaWQYASABKAlSAmlkEhIK",
-            "BG5hbWUYAiABKAlSBG5hbWUSIAoLZGVzY3JpcHRpb24YAyABKAlSC2Rlc2Ny",
-            "aXB0aW9uIiwKEkxpc3RQcmVzZXRzUmVxdWVzdBIWCgZsb2NhbGUYASABKAlS",
-            "BmxvY2FsZSJBChNMaXN0UHJlc2V0c1Jlc3BvbnNlEioKB3ByZXNldHMYASAD",
-            "KAsyEC5hZ2VudC52MS5QcmVzZXRSB3ByZXNldHMiPwoTVXBzZXJ0UHJlc2V0",
-            "UmVxdWVzdBIoCgZwcmVzZXQYASABKAsyEC5hZ2VudC52MS5QcmVzZXRSBnBy",
-            "ZXNldCImChRVcHNlcnRQcmVzZXRSZXNwb25zZRIOCgJvaxgBIAEoCFICb2si",
-            "JQoTRGVsZXRlUHJlc2V0UmVxdWVzdBIOCgJpZBgBIAEoCVICaWQiJgoURGVs",
-            "ZXRlUHJlc2V0UmVzcG9uc2USDgoCb2sYASABKAhSAm9rIiYKFFByZXZpZXdQ",
-            "cmVzZXRSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZCJPChVQcmV2aWV3UHJlc2V0",
-            "UmVzcG9uc2USGgoIdGVtcGxhdGUYASABKAlSCHRlbXBsYXRlEhoKCHJlbmRl",
-            "cmVkGAIgASgJUghyZW5kZXJlZCIkChBHZXRDb25maWdSZXF1ZXN0EhAKA2tl",
-            "eRgBIAEoCVIDa2V5IjsKEUdldENvbmZpZ1Jlc3BvbnNlEhAKA2tleRgBIAEo",
-            "CVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZSI6ChBTZXRDb25maWdSZXF1",
-            "ZXN0EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZSIj",
-            "ChFTZXRDb25maWdSZXNwb25zZRIOCgJvaxgBIAEoCFICb2siKgoQTGlzdFRv",
-            "b2xzUmVxdWVzdBIWCgZsb2NhbGUYASABKAlSBmxvY2FsZSI9ChFMaXN0VG9v",
-            "bHNSZXNwb25zZRIoCgV0b29scxgBIAMoCzISLmFnZW50LnYxLlRvb2xJbmZv",
-            "UgV0b29scyIWChRHZXRUb29sQ29uZmlnUmVxdWVzdCJFChVHZXRUb29sQ29u",
-            "ZmlnUmVzcG9uc2USLAoGY29uZmlnGAEgASgLMhQuYWdlbnQudjEuVG9vbENv",
-            "bmZpZ1IGY29uZmlnIkcKFFNldFRvb2xDb25maWdSZXF1ZXN0Ei8KBmNvbmZp",
-            "ZxgBIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSBmNvbmZpZyInChVT",
-            "ZXRUb29sQ29uZmlnUmVzcG9uc2USDgoCb2sYASABKAhSAm9rInQKGVNldEV4",
-            "dGVuc2lvbkNvbmZpZ1JlcXVlc3QSFQoGZXh0X2lkGAEgASgJUgVleHRJZBIS",
-            "CgRuYW1lGAIgASgJUgRuYW1lEiwKBXZhbHVlGAMgASgLMhYuZ29vZ2xlLnBy",
-            "b3RvYnVmLlZhbHVlUgV2YWx1ZSIsChpTZXRFeHRlbnNpb25Db25maWdSZXNw",
-            "b25zZRIOCgJvaxgBIAEoCFICb2siTgoRVXBsb2FkRmlsZVJlcXVlc3QSJQoE",
-            "ZmlsZRgBIAEoCzIRLmFnZW50LnYxLkZpbGVSZWZSBGZpbGUSEgoEZGF0YRgC",
-            "IAEoCVIEZGF0YSI4ChJVcGxvYWRGaWxlUmVzcG9uc2USDgoCb2sYASABKAhS",
-            "Am9rEhIKBGNvZGUYAiABKAlSBGNvZGUiYwoRSW5nZXN0RmlsZVJlcXVlc3QS",
-            "EgoEY29kZRgBIAEoCVIEY29kZRISCgRkYXRhGAIgASgMUgRkYXRhEhIKBG5h",
-            "bWUYAyABKAlSBG5hbWUSEgoEbWltZRgEIAEoCVIEbWltZSI4ChJJbmdlc3RG",
-            "aWxlUmVzcG9uc2USDgoCb2sYASABKAhSAm9rEhIKBGNvZGUYAiABKAlSBGNv",
-            "ZGUiJAoOR2V0RmlsZVJlcXVlc3QSEgoEY29kZRgBIAEoCVIEY29kZSJNCg9H",
-            "ZXRGaWxlUmVzcG9uc2USEgoEZGF0YRgBIAEoDFIEZGF0YRISCgRuYW1lGAIg",
-            "ASgJUgRuYW1lEhIKBG1pbWUYAyABKAlSBG1pbWUiKAoSR2V0RmlsZU1ldGFS",
-            "ZXF1ZXN0EhIKBGNvZGUYASABKAlSBGNvZGUiUQoTR2V0RmlsZU1ldGFSZXNw",
-            "b25zZRISCgRuYW1lGAEgASgJUgRuYW1lEhIKBG1pbWUYAiABKAlSBG1pbWUS",
-            "EgoEc2l6ZRgDIAEoBVIEc2l6ZSIXChVHZXRBZ2VudENvbmZpZ1JlcXVlc3Qi",
-            "SQoWR2V0QWdlbnRDb25maWdSZXNwb25zZRIvCgZjb25maWcYASABKAsyFy5n",
-            "b29nbGUucHJvdG9idWYuU3RydWN0UgZjb25maWciDwoNSGVhbHRoUmVxdWVz",
-            "dCI0Cg5IZWFsdGhSZXNwb25zZRIOCgJvaxgBIAEoCFICb2sSEgoEbmFtZRgC",
-            "IAEoCVIEbmFtZSKGAQoGVGVuYW50Eg4KAmlkGAEgASgJUgJpZBISCgRuYW1l",
-            "GAIgASgJUgRuYW1lEhoKCGRpc2FibGVkGAMgASgIUghkaXNhYmxlZBIdCgpj",
-            "cmVhdGVkX2F0GAQgASgJUgljcmVhdGVkQXQSHQoKdXBkYXRlZF9hdBgFIAEo",
-            "CVIJdXBkYXRlZEF0IrYBCgtUZW5hbnRUb2tlbhIZCgh0b2tlbl9pZBgBIAEo",
-            "CVIHdG9rZW5JZBIbCgl0ZW5hbnRfaWQYAiABKAlSCHRlbmFudElkEhQKBWxh",
-            "YmVsGAMgASgJUgVsYWJlbBIdCgpjcmVhdGVkX2F0GAQgASgJUgljcmVhdGVk",
-            "QXQSIAoMbGFzdF91c2VkX2F0GAUgASgJUgpsYXN0VXNlZEF0EhgKB3Jldm9r",
-            "ZWQYBiABKAhSB3Jldm9rZWQiFAoSTGlzdFRlbmFudHNSZXF1ZXN0IkEKE0xp",
-            "c3RUZW5hbnRzUmVzcG9uc2USKgoHdGVuYW50cxgBIAMoCzIQLmFnZW50LnYx",
-            "LlRlbmFudFIHdGVuYW50cyI5ChNDcmVhdGVUZW5hbnRSZXF1ZXN0Eg4KAmlk",
-            "GAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lIlYKFENyZWF0ZVRlbmFu",
-            "dFJlc3BvbnNlEigKBnRlbmFudBgBIAEoCzIQLmFnZW50LnYxLlRlbmFudFIG",
-            "dGVuYW50EhQKBXRva2VuGAIgASgJUgV0b2tlbiJ1ChNVcGRhdGVUZW5hbnRS",
-            "ZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZBIXCgRuYW1lGAIgASgJSABSBG5hbWWI",
-            "AQESHwoIZGlzYWJsZWQYAyABKAhIAVIIZGlzYWJsZWSIAQFCBwoFX25hbWVC",
-            "CwoJX2Rpc2FibGVkIkAKFFVwZGF0ZVRlbmFudFJlc3BvbnNlEigKBnRlbmFu",
-            "dBgBIAEoCzIQLmFnZW50LnYxLlRlbmFudFIGdGVuYW50IiUKE0RlbGV0ZVRl",
-            "bmFudFJlcXVlc3QSDgoCaWQYASABKAlSAmlkIiYKFERlbGV0ZVRlbmFudFJl",
-            "c3BvbnNlEg4KAm9rGAEgASgIUgJvayJMChdJc3N1ZVRlbmFudFRva2VuUmVx",
-            "dWVzdBIbCgl0ZW5hbnRfaWQYASABKAlSCHRlbmFudElkEhQKBWxhYmVsGAIg",
-            "ASgJUgVsYWJlbCJlChhJc3N1ZVRlbmFudFRva2VuUmVzcG9uc2USKwoFdG9r",
-            "ZW4YASABKAsyFS5hZ2VudC52MS5UZW5hbnRUb2tlblIFdG9rZW4SHAoJcGxh",
-            "aW50ZXh0GAIgASgJUglwbGFpbnRleHQiNgoXTGlzdFRlbmFudFRva2Vuc1Jl",
-            "cXVlc3QSGwoJdGVuYW50X2lkGAEgASgJUgh0ZW5hbnRJZCJJChhMaXN0VGVu",
-            "YW50VG9rZW5zUmVzcG9uc2USLQoGdG9rZW5zGAEgAygLMhUuYWdlbnQudjEu",
-            "VGVuYW50VG9rZW5SBnRva2VucyI1ChhSZXZva2VUZW5hbnRUb2tlblJlcXVl",
-            "c3QSGQoIdG9rZW5faWQYASABKAlSB3Rva2VuSWQiKwoZUmV2b2tlVGVuYW50",
-            "VG9rZW5SZXNwb25zZRIOCgJvaxgBIAEoCFICb2siNQoYUm90YXRlVGVuYW50",
-            "VG9rZW5SZXF1ZXN0EhkKCHRva2VuX2lkGAEgASgJUgd0b2tlbklkImYKGVJv",
-            "dGF0ZVRlbmFudFRva2VuUmVzcG9uc2USKwoFdG9rZW4YASABKAsyFS5hZ2Vu",
-            "dC52MS5UZW5hbnRUb2tlblIFdG9rZW4SHAoJcGxhaW50ZXh0GAIgASgJUglw",
-            "bGFpbnRleHQy7hcKDEFnZW50U2VydmljZRI7CgZIZWFsdGgSFy5hZ2VudC52",
-            "MS5IZWFsdGhSZXF1ZXN0GhguYWdlbnQudjEuSGVhbHRoUmVzcG9uc2USTQoM",
-            "TGlzdFNlc3Npb25zEh0uYWdlbnQudjEuTGlzdFNlc3Npb25zUmVxdWVzdBoe",
-            "LmFnZW50LnYxLkxpc3RTZXNzaW9uc1Jlc3BvbnNlElAKDUNyZWF0ZVNlc3Np",
-            "b24SHi5hZ2VudC52MS5DcmVhdGVTZXNzaW9uUmVxdWVzdBofLmFnZW50LnYx",
-            "LkNyZWF0ZVNlc3Npb25SZXNwb25zZRJHCgpHZXRTZXNzaW9uEhsuYWdlbnQu",
-            "djEuR2V0U2Vzc2lvblJlcXVlc3QaHC5hZ2VudC52MS5HZXRTZXNzaW9uUmVz",
-            "cG9uc2USUAoNRGVsZXRlU2Vzc2lvbhIeLmFnZW50LnYxLkRlbGV0ZVNlc3Np",
-            "b25SZXF1ZXN0Gh8uYWdlbnQudjEuRGVsZXRlU2Vzc2lvblJlc3BvbnNlEk0K",
-            "DExpc3RNZXNzYWdlcxIdLmFnZW50LnYxLkxpc3RNZXNzYWdlc1JlcXVlc3Qa",
-            "Hi5hZ2VudC52MS5MaXN0TWVzc2FnZXNSZXNwb25zZRI9CgZQcm9tcHQSFy5h",
-            "Z2VudC52MS5Qcm9tcHRSZXF1ZXN0GhguYWdlbnQudjEuUHJvbXB0UmVzcG9u",
-            "c2UwARJPCgxXYXRjaFNlc3Npb24SHS5hZ2VudC52MS5XYXRjaFNlc3Npb25S",
-            "ZXF1ZXN0Gh4uYWdlbnQudjEuV2F0Y2hTZXNzaW9uUmVzcG9uc2UwARJSCg1X",
-            "YXRjaFNlc3Npb25zEh4uYWdlbnQudjEuV2F0Y2hTZXNzaW9uc1JlcXVlc3Qa",
-            "Hy5hZ2VudC52MS5XYXRjaFNlc3Npb25zUmVzcG9uc2UwARI1CgRGb3JrEhUu",
-            "YWdlbnQudjEuRm9ya1JlcXVlc3QaFi5hZ2VudC52MS5Gb3JrUmVzcG9uc2US",
-            "OwoGUmVuYW1lEhcuYWdlbnQudjEuUmVuYW1lUmVxdWVzdBoYLmFnZW50LnYx",
-            "LlJlbmFtZVJlc3BvbnNlEkEKCFNldE1vZGVsEhkuYWdlbnQudjEuU2V0TW9k",
-            "ZWxSZXF1ZXN0GhouYWdlbnQudjEuU2V0TW9kZWxSZXNwb25zZRI1CgRVbmRv",
-            "EhUuYWdlbnQudjEuVW5kb1JlcXVlc3QaFi5hZ2VudC52MS5VbmRvUmVzcG9u",
-            "c2USOAoFU3RhdGUSFi5hZ2VudC52MS5TdGF0ZVJlcXVlc3QaFy5hZ2VudC52",
-            "MS5TdGF0ZVJlc3BvbnNlEj4KB01haWxib3gSGC5hZ2VudC52MS5NYWlsYm94",
-            "UmVxdWVzdBoZLmFnZW50LnYxLk1haWxib3hSZXNwb25zZRJTCg5VcGRhdGVT",
-            "ZXR0aW5ncxIfLmFnZW50LnYxLlVwZGF0ZVNldHRpbmdzUmVxdWVzdBogLmFn",
-            "ZW50LnYxLlVwZGF0ZVNldHRpbmdzUmVzcG9uc2USRAoJSW50ZXJydXB0Ehou",
-            "YWdlbnQudjEuSW50ZXJydXB0UmVxdWVzdBobLmFnZW50LnYxLkludGVycnVw",
-            "dFJlc3BvbnNlEj4KB0NvbXBhY3QSGC5hZ2VudC52MS5Db21wYWN0UmVxdWVz",
-            "dBoZLmFnZW50LnYxLkNvbXBhY3RSZXNwb25zZRJQCg1MaXN0UHJvdmlkZXJz",
-            "Eh4uYWdlbnQudjEuTGlzdFByb3ZpZGVyc1JlcXVlc3QaHy5hZ2VudC52MS5M",
-            "aXN0UHJvdmlkZXJzUmVzcG9uc2USZQoUTGlzdFByb3ZpZGVyc0NhdGFsb2cS",
-            "JS5hZ2VudC52MS5MaXN0UHJvdmlkZXJzQ2F0YWxvZ1JlcXVlc3QaJi5hZ2Vu",
-            "dC52MS5MaXN0UHJvdmlkZXJzQ2F0YWxvZ1Jlc3BvbnNlElkKEFJlZ2lzdGVy",
-            "UHJvdmlkZXISIS5hZ2VudC52MS5SZWdpc3RlclByb3ZpZGVyUmVxdWVzdBoi",
-            "LmFnZW50LnYxLlJlZ2lzdGVyUHJvdmlkZXJSZXNwb25zZRJoChVEaXNjb3Zl",
-            "ckdhdGV3YXlNb2RlbHMSJi5hZ2VudC52MS5EaXNjb3ZlckdhdGV3YXlNb2Rl",
-            "bHNSZXF1ZXN0GicuYWdlbnQudjEuRGlzY292ZXJHYXRld2F5TW9kZWxzUmVz",
-            "cG9uc2USUwoORGVsZXRlUHJvdmlkZXISHy5hZ2VudC52MS5EZWxldGVQcm92",
-            "aWRlclJlcXVlc3QaIC5hZ2VudC52MS5EZWxldGVQcm92aWRlclJlc3BvbnNl",
-            "Ek0KDFRlc3RQcm92aWRlchIdLmFnZW50LnYxLlRlc3RQcm92aWRlclJlcXVl",
-            "c3QaHi5hZ2VudC52MS5UZXN0UHJvdmlkZXJSZXNwb25zZRJHCgpMaXN0TW9k",
-            "ZWxzEhsuYWdlbnQudjEuTGlzdE1vZGVsc1JlcXVlc3QaHC5hZ2VudC52MS5M",
-            "aXN0TW9kZWxzUmVzcG9uc2USSgoLTGlzdFByZXNldHMSHC5hZ2VudC52MS5M",
-            "aXN0UHJlc2V0c1JlcXVlc3QaHS5hZ2VudC52MS5MaXN0UHJlc2V0c1Jlc3Bv",
-            "bnNlEk0KDFVwc2VydFByZXNldBIdLmFnZW50LnYxLlVwc2VydFByZXNldFJl",
-            "cXVlc3QaHi5hZ2VudC52MS5VcHNlcnRQcmVzZXRSZXNwb25zZRJNCgxEZWxl",
-            "dGVQcmVzZXQSHS5hZ2VudC52MS5EZWxldGVQcmVzZXRSZXF1ZXN0Gh4uYWdl",
-            "bnQudjEuRGVsZXRlUHJlc2V0UmVzcG9uc2USUAoNUHJldmlld1ByZXNldBIe",
-            "LmFnZW50LnYxLlByZXZpZXdQcmVzZXRSZXF1ZXN0Gh8uYWdlbnQudjEuUHJl",
-            "dmlld1ByZXNldFJlc3BvbnNlEkQKCUdldENvbmZpZxIaLmFnZW50LnYxLkdl",
-            "dENvbmZpZ1JlcXVlc3QaGy5hZ2VudC52MS5HZXRDb25maWdSZXNwb25zZRJE",
-            "CglTZXRDb25maWcSGi5hZ2VudC52MS5TZXRDb25maWdSZXF1ZXN0GhsuYWdl",
-            "bnQudjEuU2V0Q29uZmlnUmVzcG9uc2USRAoJTGlzdFRvb2xzEhouYWdlbnQu",
-            "djEuTGlzdFRvb2xzUmVxdWVzdBobLmFnZW50LnYxLkxpc3RUb29sc1Jlc3Bv",
-            "bnNlElAKDUdldFRvb2xDb25maWcSHi5hZ2VudC52MS5HZXRUb29sQ29uZmln",
-            "UmVxdWVzdBofLmFnZW50LnYxLkdldFRvb2xDb25maWdSZXNwb25zZRJQCg1T",
-            "ZXRUb29sQ29uZmlnEh4uYWdlbnQudjEuU2V0VG9vbENvbmZpZ1JlcXVlc3Qa",
-            "Hy5hZ2VudC52MS5TZXRUb29sQ29uZmlnUmVzcG9uc2USXwoSU2V0RXh0ZW5z",
-            "aW9uQ29uZmlnEiMuYWdlbnQudjEuU2V0RXh0ZW5zaW9uQ29uZmlnUmVxdWVz",
-            "dBokLmFnZW50LnYxLlNldEV4dGVuc2lvbkNvbmZpZ1Jlc3BvbnNlEkcKClVw",
-            "bG9hZEZpbGUSGy5hZ2VudC52MS5VcGxvYWRGaWxlUmVxdWVzdBocLmFnZW50",
-            "LnYxLlVwbG9hZEZpbGVSZXNwb25zZRJHCgpJbmdlc3RGaWxlEhsuYWdlbnQu",
-            "djEuSW5nZXN0RmlsZVJlcXVlc3QaHC5hZ2VudC52MS5Jbmdlc3RGaWxlUmVz",
-            "cG9uc2USPgoHR2V0RmlsZRIYLmFnZW50LnYxLkdldEZpbGVSZXF1ZXN0Ghku",
-            "YWdlbnQudjEuR2V0RmlsZVJlc3BvbnNlEkoKC0dldEZpbGVNZXRhEhwuYWdl",
-            "bnQudjEuR2V0RmlsZU1ldGFSZXF1ZXN0Gh0uYWdlbnQudjEuR2V0RmlsZU1l",
-            "dGFSZXNwb25zZRJTCg5HZXRBZ2VudENvbmZpZxIfLmFnZW50LnYxLkdldEFn",
-            "ZW50Q29uZmlnUmVxdWVzdBogLmFnZW50LnYxLkdldEFnZW50Q29uZmlnUmVz",
-            "cG9uc2UyuQUKDEFkbWluU2VydmljZRJKCgtMaXN0VGVuYW50cxIcLmFnZW50",
-            "LnYxLkxpc3RUZW5hbnRzUmVxdWVzdBodLmFnZW50LnYxLkxpc3RUZW5hbnRz",
-            "UmVzcG9uc2USTQoMQ3JlYXRlVGVuYW50Eh0uYWdlbnQudjEuQ3JlYXRlVGVu",
-            "YW50UmVxdWVzdBoeLmFnZW50LnYxLkNyZWF0ZVRlbmFudFJlc3BvbnNlEk0K",
-            "DFVwZGF0ZVRlbmFudBIdLmFnZW50LnYxLlVwZGF0ZVRlbmFudFJlcXVlc3Qa",
-            "Hi5hZ2VudC52MS5VcGRhdGVUZW5hbnRSZXNwb25zZRJNCgxEZWxldGVUZW5h",
-            "bnQSHS5hZ2VudC52MS5EZWxldGVUZW5hbnRSZXF1ZXN0Gh4uYWdlbnQudjEu",
-            "RGVsZXRlVGVuYW50UmVzcG9uc2USWQoQSXNzdWVUZW5hbnRUb2tlbhIhLmFn",
-            "ZW50LnYxLklzc3VlVGVuYW50VG9rZW5SZXF1ZXN0GiIuYWdlbnQudjEuSXNz",
-            "dWVUZW5hbnRUb2tlblJlc3BvbnNlElkKEExpc3RUZW5hbnRUb2tlbnMSIS5h",
-            "Z2VudC52MS5MaXN0VGVuYW50VG9rZW5zUmVxdWVzdBoiLmFnZW50LnYxLkxp",
-            "c3RUZW5hbnRUb2tlbnNSZXNwb25zZRJcChFSZXZva2VUZW5hbnRUb2tlbhIi",
-            "LmFnZW50LnYxLlJldm9rZVRlbmFudFRva2VuUmVxdWVzdBojLmFnZW50LnYx",
-            "LlJldm9rZVRlbmFudFRva2VuUmVzcG9uc2USXAoRUm90YXRlVGVuYW50VG9r",
-            "ZW4SIi5hZ2VudC52MS5Sb3RhdGVUZW5hbnRUb2tlblJlcXVlc3QaIy5hZ2Vu",
-            "dC52MS5Sb3RhdGVUZW5hbnRUb2tlblJlc3BvbnNlQp0BCghhZ2VudC52MUIK",
-            "QWdlbnRQcm90b1ABWjBnaXRodWIuY29tL2FiY3Atc2RrL2FnZW50LXByb3Rv",
-            "L2FnZW50L3YxO2FnZW50djGiAgNBWFiqAhBFYXN5cnBjLkFnZW50LlYxugIJ",
-            "QWdlbnRfVjFfygIIQWdlbnRcVjHiAhRBZ2VudFxWMVxHUEJNZXRhZGF0YeoC",
-            "CUFnZW50OjpWMWIGcHJvdG8z"));
+            "b2J1Zi9zdHJ1Y3QucHJvdG8i5QMKB1Nlc3Npb24SDAoEbmFtZRgBIAEoCRIN",
+            "CgVtb2RlbBgCIAEoCRIOCgZwcmVzZXQYAyABKAkSDgoGdGlwX2lkGAQgASgJ",
+            "EhEKCW1heF90dXJucxgFIAEoBRIVCg1zeXN0ZW1fcHJvbXB0GAYgASgJEhQK",
+            "DGlucHV0X3Rva2VucxgHIAEoBRIVCg1vdXRwdXRfdG9rZW5zGAggASgFEhQK",
+            "DHRvdGFsX3Rva2VucxgJIAEoBRIZChFsYXN0X2lucHV0X3Rva2VucxgKIAEo",
+            "BRIaChJsYXN0X291dHB1dF90b2tlbnMYCyABKAUSEgoKY3JlYXRlZF9hdBgM",
+            "IAEoCRISCgp1cGRhdGVkX2F0GA0gASgJEhQKDGxhc3RfdXNlZF9hdBgOIAEo",
+            "CRIOCgZsb2NhbGUYDyABKAkSCwoDb3JnGBAgASgJEgwKBHJlcG8YESABKAkS",
+            "DgoGYnJhbmNoGBIgASgJEhQKDHVucmVhZF9jb3VudBgTIAEoBRIXCg9sYXN0",
+            "X21lc3NhZ2VfYXQYFCABKAkSHAoUbGFzdF9tZXNzYWdlX3ByZXZpZXcYFSAB",
+            "KAkSDwoHdmFyaWFudBgWIAEoCRITCgttZXNzYWdlX3NlcRgXIAEoBRINCgVn",
+            "cm91cBgYIAEoCSJnCgdNZXNzYWdlEgoKAmlkGAEgASgJEgwKBHJvbGUYAiAB",
+            "KAkSDwoHcHJldl9pZBgDIAEoCRISCgpjcmVhdGVkX2F0GAQgASgJEh0KBXBh",
+            "cnRzGAUgAygLMg4uYWdlbnQudjEuUGFydCJPCgRQYXJ0EgoKAmlkGAEgASgJ",
+            "EhIKCm1lc3NhZ2VfaWQYAiABKAkSDAoEdHlwZRgDIAEoCRILCgNzZXEYBCAB",
+            "KAUSDAoEZGF0YRgFIAEoCSKvAQoMTWFpbGJveEVudHJ5EgoKAmlkGAEgASgJ",
+            "EhQKDHNlc3Npb25fbmFtZRgCIAEoCRIQCghtc2dfdHlwZRgDIAEoCRIPCgdw",
+            "YXlsb2FkGAQgASgJEhQKDGVmZmVjdGl2ZV9hdBgFIAEoCRIOCgZzdGF0dXMY",
+            "BiABKAkSEgoKY3JlYXRlZF9hdBgHIAEoCRITCgtjb25zdW1lZF9hdBgIIAEo",
+            "CRILCgNzZXEYCSABKAMifAoGUHJlc2V0EgoKAmlkGAEgASgJEhUKDXN5c3Rl",
+            "bV9wcm9tcHQYAiABKAkSGgoSc3lzdGVtX3Byb21wdF9pMThuGAMgASgJEg0K",
+            "BXRvb2xzGAQgAygJEhEKCW1heF90dXJucxgFIAEoBRIRCglpc19zeXN0ZW0Y",
+            "BiABKAgihwIKCFByb3ZpZGVyEhMKC3Byb3ZpZGVyX2lkGAEgASgJEhAKCGFw",
+            "aV90eXBlGAIgASgJEhAKCGJhc2VfdXJsGAMgASgJEg8KB2FwaV9rZXkYBCAB",
+            "KAkSMAoHaGVhZGVycxgFIAMoCzIfLmFnZW50LnYxLlByb3ZpZGVyLkhlYWRl",
+            "cnNFbnRyeRInCgZtb2RlbHMYBiADKAsyFy5hZ2VudC52MS5Qcm92aWRlck1v",
+            "ZGVsEhIKCnVwZGF0ZWRfYXQYByABKAkSEgoKY2FwYWJpbGl0eRgIIAEoCRou",
+            "CgxIZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
+            "ASJUCg1Qcm92aWRlck1vZGVsEgoKAmlkGAEgASgJEgwKBG5hbWUYAiABKAkS",
+            "FQoNY29udGV4dF9saW1pdBgDIAEoAxISCgptb2RlbF90eXBlGAQgASgJIrcB",
+            "CghUb29sSW5mbxIMCgRuYW1lGAEgASgJEhMKC2Rlc2NyaXB0aW9uGAIgASgJ",
+            "EhAKCGNhdGVnb3J5GAMgASgJEisKCnBhcmFtZXRlcnMYBCABKAsyFy5nb29n",
+            "bGUucHJvdG9idWYuU3RydWN0EjAKDWNvbmZpZ19maWVsZHMYBSADKAsyGS5h",
+            "Z2VudC52MS5Ub29sQ29uZmlnRmllbGQSFwoPcmVxdWlyZWRfY29uZmlnGAYg",
+            "AygJIrEBCg9Ub29sQ29uZmlnRmllbGQSDAoEbmFtZRgBIAEoCRIMCgR0eXBl",
+            "GAIgASgJEhMKC2VudW1fdmFsdWVzGAMgAygJEicKB2RlZmF1bHQYBiABKAsy",
+            "Fi5nb29nbGUucHJvdG9idWYuVmFsdWUSEwoLZGVzY3JpcHRpb24YByABKAkS",
+            "DQoFc2NvcGUYCCABKAkSDAoEa2luZBgJIAEoCRISCgpjYXBhYmlsaXR5GAog",
+            "ASgJIoUBCgpUb29sQ29uZmlnEjAKBnZhbHVlcxgBIAMoCzIgLmFnZW50LnYx",
+            "LlRvb2xDb25maWcuVmFsdWVzRW50cnkaRQoLVmFsdWVzRW50cnkSCwoDa2V5",
+            "GAEgASgJEiUKBXZhbHVlGAIgASgLMhYuZ29vZ2xlLnByb3RvYnVmLlZhbHVl",
+            "OgI4ASKRAQoOUHJvbXB0UmVzcG9uc2USDQoFZXZlbnQYASABKAkSNAoGcGFy",
+            "YW1zGAIgAygLMiQuYWdlbnQudjEuUHJvbXB0UmVzcG9uc2UuUGFyYW1zRW50",
+            "cnkSCwoDZWlkGAMgASgJGi0KC1BhcmFtc0VudHJ5EgsKA2tleRgBIAEoCRIN",
+            "CgV2YWx1ZRgCIAEoCToCOAEiMAoTV2F0Y2hTZXNzaW9uUmVxdWVzdBIKCgJp",
+            "ZBgBIAEoCRINCgVzaW5jZRgCIAEoCSJbChRXYXRjaFNlc3Npb25SZXNwb25z",
+            "ZRINCgVldmVudBgBIAEoCRInCgZwYXJhbXMYAiABKAsyFy5nb29nbGUucHJv",
+            "dG9idWYuU3RydWN0EgsKA2VpZBgDIAEoCSIWChRXYXRjaFNlc3Npb25zUmVx",
+            "dWVzdCJeChVXYXRjaFNlc3Npb25zUmVzcG9uc2USIgoHdXBzZXJ0cxgBIAMo",
+            "CzIRLmFnZW50LnYxLlNlc3Npb24SDwoHcmVtb3ZlZBgCIAMoCRIQCghzbmFw",
+            "c2hvdBgDIAEoCCJBCgdGaWxlUmVmEgwKBGNvZGUYASABKAkSDAoEbmFtZRgC",
+            "IAEoCRIMCgRtaW1lGAMgASgJEgwKBHNpemUYBCABKAUiFQoTTGlzdFNlc3Np",
+            "b25zUmVxdWVzdCI7ChRMaXN0U2Vzc2lvbnNSZXNwb25zZRIjCghzZXNzaW9u",
+            "cxgBIAMoCzIRLmFnZW50LnYxLlNlc3Npb24ijgEKFENyZWF0ZVNlc3Npb25S",
+            "ZXF1ZXN0EgwKBG5hbWUYASABKAkSDQoFbW9kZWwYAiABKAkSDgoGcHJlc2V0",
+            "GAMgASgJEgsKA29yZxgEIAEoCRIMCgRyZXBvGAUgASgJEg4KBmJyYW5jaBgG",
+            "IAEoCRIPCgd2YXJpYW50GAcgASgJEg0KBWdyb3VwGAggASgJIjkKFUNyZWF0",
+            "ZVNlc3Npb25SZXNwb25zZRIKCgJvaxgBIAEoCBIUCgxzZXNzaW9uX25hbWUY",
+            "AiABKAkiHwoRR2V0U2Vzc2lvblJlcXVlc3QSCgoCaWQYASABKAkiOAoSR2V0",
+            "U2Vzc2lvblJlc3BvbnNlEiIKB3Nlc3Npb24YASABKAsyES5hZ2VudC52MS5T",
+            "ZXNzaW9uIiIKFERlbGV0ZVNlc3Npb25SZXF1ZXN0EgoKAmlkGAEgASgJIiMK",
+            "FURlbGV0ZVNlc3Npb25SZXNwb25zZRIKCgJvaxgBIAEoCCJPChNMaXN0TWVz",
+            "c2FnZXNSZXF1ZXN0EgoKAmlkGAEgASgJEg0KBWxpbWl0GAIgASgFEg4KBmJl",
+            "Zm9yZRgDIAEoCRINCgVhZnRlchgEIAEoCSJnChRMaXN0TWVzc2FnZXNSZXNw",
+            "b25zZRIKCgJvaxgBIAEoCBIjCghtZXNzYWdlcxgCIAMoCzIRLmFnZW50LnYx",
+            "Lk1lc3NhZ2USDgoGcmVzeW5jGAMgASgIEg4KBnRpcF9pZBgEIAEoCSJTCg1Q",
+            "cm9tcHRSZXF1ZXN0EgoKAmlkGAEgASgJEg4KBnByb21wdBgCIAEoCRImCgth",
+            "dHRhY2htZW50cxgDIAMoCzIRLmFnZW50LnYxLkZpbGVSZWYiSwoLRm9ya1Jl",
+            "cXVlc3QSCgoCaWQYASABKAkSDAoEbmFtZRgCIAEoCRISCgptZXNzYWdlX2lk",
+            "GAMgASgJEg4KBnByZXNldBgEIAEoCSIyCgxGb3JrUmVzcG9uc2USIgoHc2Vz",
+            "c2lvbhgBIAEoCzIRLmFnZW50LnYxLlNlc3Npb24iKQoNUmVuYW1lUmVxdWVz",
+            "dBIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJIjQKDlJlbmFtZVJlc3BvbnNl",
+            "EiIKB3Nlc3Npb24YASABKAsyES5hZ2VudC52MS5TZXNzaW9uIj0KD1NldE1v",
+            "ZGVsUmVxdWVzdBIKCgJpZBgBIAEoCRINCgVtb2RlbBgCIAEoCRIPCgd2YXJp",
+            "YW50GAMgASgJIjYKEFNldE1vZGVsUmVzcG9uc2USIgoHc2Vzc2lvbhgBIAEo",
+            "CzIRLmFnZW50LnYxLlNlc3Npb24iLQoLVW5kb1JlcXVlc3QSCgoCaWQYASAB",
+            "KAkSEgoKbWVzc2FnZV9pZBgCIAEoCSIyCgxVbmRvUmVzcG9uc2USIgoHc2Vz",
+            "c2lvbhgBIAEoCzIRLmFnZW50LnYxLlNlc3Npb24iGgoMU3RhdGVSZXF1ZXN0",
+            "EgoKAmlkGAEgASgJIjcKDVN0YXRlUmVzcG9uc2USJgoFc3RhdGUYASABKAsy",
+            "Fy5nb29nbGUucHJvdG9idWYuU3RydWN0IhwKDk1haWxib3hSZXF1ZXN0EgoK",
+            "AmlkGAEgASgJIkYKD01haWxib3hSZXNwb25zZRIKCgJvaxgBIAEoCBInCgdt",
+            "YWlsYm94GAIgAygLMhYuYWdlbnQudjEuTWFpbGJveEVudHJ5Ir4BChVVcGRh",
+            "dGVTZXR0aW5nc1JlcXVlc3QSCgoCaWQYASABKAkSDQoFbW9kZWwYAiABKAkS",
+            "DgoGcHJlc2V0GAMgASgJEhYKCW1heF90dXJucxgEIAEoBUgAiAEBEhUKDXN5",
+            "c3RlbV9wcm9tcHQYBSABKAkSDgoGbG9jYWxlGAYgASgJEg8KB3ZhcmlhbnQY",
+            "ByABKAkSEgoFZ3JvdXAYCCABKAlIAYgBAUIMCgpfbWF4X3R1cm5zQggKBl9n",
+            "cm91cCI8ChZVcGRhdGVTZXR0aW5nc1Jlc3BvbnNlEiIKB3Nlc3Npb24YASAB",
+            "KAsyES5hZ2VudC52MS5TZXNzaW9uIh4KEEludGVycnVwdFJlcXVlc3QSCgoC",
+            "aWQYASABKAkiNAoRSW50ZXJydXB0UmVzcG9uc2USCgoCb2sYASABKAgSEwoL",
+            "aW50ZXJydXB0ZWQYAiABKAgiHAoOQ29tcGFjdFJlcXVlc3QSCgoCaWQYASAB",
+            "KAkiHQoPQ29tcGFjdFJlc3BvbnNlEgoKAm9rGAEgASgIIhYKFExpc3RQcm92",
+            "aWRlcnNSZXF1ZXN0Ij4KFUxpc3RQcm92aWRlcnNSZXNwb25zZRIlCglwcm92",
+            "aWRlcnMYASADKAsyEi5hZ2VudC52MS5Qcm92aWRlciIdChtMaXN0UHJvdmlk",
+            "ZXJzQ2F0YWxvZ1JlcXVlc3QisgEKHExpc3RQcm92aWRlcnNDYXRhbG9nUmVz",
+            "cG9uc2USRwoJYXBpX3R5cGVzGAEgAygLMjQuYWdlbnQudjEuTGlzdFByb3Zp",
+            "ZGVyc0NhdGFsb2dSZXNwb25zZS5BcGlUeXBlc0VudHJ5GkkKDUFwaVR5cGVz",
+            "RW50cnkSCwoDa2V5GAEgASgJEicKBXZhbHVlGAIgASgLMhguYWdlbnQudjEu",
+            "QXBpVHlwZUNhdGFsb2c6AjgBIiYKDkFwaVR5cGVDYXRhbG9nEhQKDGNhcGFi",
+            "aWxpdGllcxgBIAMoCSI/ChdSZWdpc3RlclByb3ZpZGVyUmVxdWVzdBIkCghw",
+            "cm92aWRlchgBIAEoCzISLmFnZW50LnYxLlByb3ZpZGVyIiYKGFJlZ2lzdGVy",
+            "UHJvdmlkZXJSZXNwb25zZRIKCgJvaxgBIAEoCCIsChVEZWxldGVQcm92aWRl",
+            "clJlcXVlc3QSEwoLcHJvdmlkZXJfaWQYASABKAkiJAoWRGVsZXRlUHJvdmlk",
+            "ZXJSZXNwb25zZRIKCgJvaxgBIAEoCCKTAQoTVGVzdFByb3ZpZGVyUmVxdWVz",
+            "dBITCgtwcm92aWRlcl9pZBgBIAEoCRIQCghhcGlfdHlwZRgCIAEoCRIQCghi",
+            "YXNlX3VybBgDIAEoCRIPCgdhcGlfa2V5GAQgASgJEg0KBW1vZGVsGAUgASgJ",
+            "Eg8KB3ZhcmlhbnQYBiABKAkSEgoKY2FwYWJpbGl0eRgHIAEoCSIyChRUZXN0",
+            "UHJvdmlkZXJSZXNwb25zZRIKCgJvaxgBIAEoCBIOCgZyZXN1bHQYAiABKAki",
+            "KAoRTGlzdE1vZGVsc1JlcXVlc3QSEwoLcHJvdmlkZXJfaWQYASABKAkiOQoS",
+            "TGlzdE1vZGVsc1Jlc3BvbnNlEiMKBm1vZGVscxgBIAMoCzITLmFnZW50LnYx",
+            "Lk1vZGVsSW5mbyJmCglNb2RlbEluZm8SCgoCaWQYASABKAkSDAoEbmFtZRgC",
+            "IAEoCRIoCgh2YXJpYW50cxgDIAMoCzIWLmFnZW50LnYxLk1vZGVsVmFyaWFu",
+            "dBIVCg1jb250ZXh0X2xpbWl0GAQgASgDIj0KDE1vZGVsVmFyaWFudBIKCgJp",
+            "ZBgBIAEoCRIMCgRuYW1lGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJIiQK",
+            "Ekxpc3RQcmVzZXRzUmVxdWVzdBIOCgZsb2NhbGUYASABKAkiOAoTTGlzdFBy",
+            "ZXNldHNSZXNwb25zZRIhCgdwcmVzZXRzGAEgAygLMhAuYWdlbnQudjEuUHJl",
+            "c2V0IjcKE1Vwc2VydFByZXNldFJlcXVlc3QSIAoGcHJlc2V0GAEgASgLMhAu",
+            "YWdlbnQudjEuUHJlc2V0IiIKFFVwc2VydFByZXNldFJlc3BvbnNlEgoKAm9r",
+            "GAEgASgIIiEKE0RlbGV0ZVByZXNldFJlcXVlc3QSCgoCaWQYASABKAkiIgoU",
+            "RGVsZXRlUHJlc2V0UmVzcG9uc2USCgoCb2sYASABKAgiIgoUUHJldmlld1By",
+            "ZXNldFJlcXVlc3QSCgoCaWQYASABKAkiOwoVUHJldmlld1ByZXNldFJlc3Bv",
+            "bnNlEhAKCHRlbXBsYXRlGAEgASgJEhAKCHJlbmRlcmVkGAIgASgJIh8KEEdl",
+            "dENvbmZpZ1JlcXVlc3QSCwoDa2V5GAEgASgJIi8KEUdldENvbmZpZ1Jlc3Bv",
+            "bnNlEgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCSIuChBTZXRDb25maWdS",
+            "ZXF1ZXN0EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCSIfChFTZXRDb25m",
+            "aWdSZXNwb25zZRIKCgJvaxgBIAEoCCIiChBMaXN0VG9vbHNSZXF1ZXN0Eg4K",
+            "BmxvY2FsZRgBIAEoCSI2ChFMaXN0VG9vbHNSZXNwb25zZRIhCgV0b29scxgB",
+            "IAMoCzISLmFnZW50LnYxLlRvb2xJbmZvIhYKFEdldFRvb2xDb25maWdSZXF1",
+            "ZXN0Ij0KFUdldFRvb2xDb25maWdSZXNwb25zZRIkCgZjb25maWcYASABKAsy",
+            "FC5hZ2VudC52MS5Ub29sQ29uZmlnIj8KFFNldFRvb2xDb25maWdSZXF1ZXN0",
+            "EicKBmNvbmZpZxgBIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3QiIwoV",
+            "U2V0VG9vbENvbmZpZ1Jlc3BvbnNlEgoKAm9rGAEgASgIImAKGVNldEV4dGVu",
+            "c2lvbkNvbmZpZ1JlcXVlc3QSDgoGZXh0X2lkGAEgASgJEgwKBG5hbWUYAiAB",
+            "KAkSJQoFdmFsdWUYAyABKAsyFi5nb29nbGUucHJvdG9idWYuVmFsdWUiKAoa",
+            "U2V0RXh0ZW5zaW9uQ29uZmlnUmVzcG9uc2USCgoCb2sYASABKAgiQgoRVXBs",
+            "b2FkRmlsZVJlcXVlc3QSHwoEZmlsZRgBIAEoCzIRLmFnZW50LnYxLkZpbGVS",
+            "ZWYSDAoEZGF0YRgCIAEoCSIuChJVcGxvYWRGaWxlUmVzcG9uc2USCgoCb2sY",
+            "ASABKAgSDAoEY29kZRgCIAEoCSJLChFJbmdlc3RGaWxlUmVxdWVzdBIMCgRj",
+            "b2RlGAEgASgJEgwKBGRhdGEYAiABKAwSDAoEbmFtZRgDIAEoCRIMCgRtaW1l",
+            "GAQgASgJIi4KEkluZ2VzdEZpbGVSZXNwb25zZRIKCgJvaxgBIAEoCBIMCgRj",
+            "b2RlGAIgASgJIh4KDkdldEZpbGVSZXF1ZXN0EgwKBGNvZGUYASABKAkiOwoP",
+            "R2V0RmlsZVJlc3BvbnNlEgwKBGRhdGEYASABKAwSDAoEbmFtZRgCIAEoCRIM",
+            "CgRtaW1lGAMgASgJIiIKEkdldEZpbGVNZXRhUmVxdWVzdBIMCgRjb2RlGAEg",
+            "ASgJIj8KE0dldEZpbGVNZXRhUmVzcG9uc2USDAoEbmFtZRgBIAEoCRIMCgRt",
+            "aW1lGAIgASgJEgwKBHNpemUYAyABKAUiFwoVR2V0QWdlbnRDb25maWdSZXF1",
+            "ZXN0IkEKFkdldEFnZW50Q29uZmlnUmVzcG9uc2USJwoGY29uZmlnGAEgASgL",
+            "MhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdCIPCg1IZWFsdGhSZXF1ZXN0IioK",
+            "DkhlYWx0aFJlc3BvbnNlEgoKAm9rGAEgASgIEgwKBG5hbWUYAiABKAkiXAoG",
+            "VGVuYW50EgoKAmlkGAEgASgJEgwKBG5hbWUYAiABKAkSEAoIZGlzYWJsZWQY",
+            "AyABKAgSEgoKY3JlYXRlZF9hdBgEIAEoCRISCgp1cGRhdGVkX2F0GAUgASgJ",
+            "InwKC1RlbmFudFRva2VuEhAKCHRva2VuX2lkGAEgASgJEhEKCXRlbmFudF9p",
+            "ZBgCIAEoCRINCgVsYWJlbBgDIAEoCRISCgpjcmVhdGVkX2F0GAQgASgJEhQK",
+            "DGxhc3RfdXNlZF9hdBgFIAEoCRIPCgdyZXZva2VkGAYgASgIIhQKEkxpc3RU",
+            "ZW5hbnRzUmVxdWVzdCI4ChNMaXN0VGVuYW50c1Jlc3BvbnNlEiEKB3RlbmFu",
+            "dHMYASADKAsyEC5hZ2VudC52MS5UZW5hbnQiLwoTQ3JlYXRlVGVuYW50UmVx",
+            "dWVzdBIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJIkcKFENyZWF0ZVRlbmFu",
+            "dFJlc3BvbnNlEiAKBnRlbmFudBgBIAEoCzIQLmFnZW50LnYxLlRlbmFudBIN",
+            "CgV0b2tlbhgCIAEoCSJhChNVcGRhdGVUZW5hbnRSZXF1ZXN0EgoKAmlkGAEg",
+            "ASgJEhEKBG5hbWUYAiABKAlIAIgBARIVCghkaXNhYmxlZBgDIAEoCEgBiAEB",
+            "QgcKBV9uYW1lQgsKCV9kaXNhYmxlZCI4ChRVcGRhdGVUZW5hbnRSZXNwb25z",
+            "ZRIgCgZ0ZW5hbnQYASABKAsyEC5hZ2VudC52MS5UZW5hbnQiIQoTRGVsZXRl",
+            "VGVuYW50UmVxdWVzdBIKCgJpZBgBIAEoCSIiChREZWxldGVUZW5hbnRSZXNw",
+            "b25zZRIKCgJvaxgBIAEoCCI7ChdJc3N1ZVRlbmFudFRva2VuUmVxdWVzdBIR",
+            "Cgl0ZW5hbnRfaWQYASABKAkSDQoFbGFiZWwYAiABKAkiUwoYSXNzdWVUZW5h",
+            "bnRUb2tlblJlc3BvbnNlEiQKBXRva2VuGAEgASgLMhUuYWdlbnQudjEuVGVu",
+            "YW50VG9rZW4SEQoJcGxhaW50ZXh0GAIgASgJIiwKF0xpc3RUZW5hbnRUb2tl",
+            "bnNSZXF1ZXN0EhEKCXRlbmFudF9pZBgBIAEoCSJBChhMaXN0VGVuYW50VG9r",
+            "ZW5zUmVzcG9uc2USJQoGdG9rZW5zGAEgAygLMhUuYWdlbnQudjEuVGVuYW50",
+            "VG9rZW4iLAoYUmV2b2tlVGVuYW50VG9rZW5SZXF1ZXN0EhAKCHRva2VuX2lk",
+            "GAEgASgJIicKGVJldm9rZVRlbmFudFRva2VuUmVzcG9uc2USCgoCb2sYASAB",
+            "KAgiLAoYUm90YXRlVGVuYW50VG9rZW5SZXF1ZXN0EhAKCHRva2VuX2lkGAEg",
+            "ASgJIlQKGVJvdGF0ZVRlbmFudFRva2VuUmVzcG9uc2USJAoFdG9rZW4YASAB",
+            "KAsyFS5hZ2VudC52MS5UZW5hbnRUb2tlbhIRCglwbGFpbnRleHQYAiABKAky",
+            "hBcKDEFnZW50U2VydmljZRI7CgZIZWFsdGgSFy5hZ2VudC52MS5IZWFsdGhS",
+            "ZXF1ZXN0GhguYWdlbnQudjEuSGVhbHRoUmVzcG9uc2USTQoMTGlzdFNlc3Np",
+            "b25zEh0uYWdlbnQudjEuTGlzdFNlc3Npb25zUmVxdWVzdBoeLmFnZW50LnYx",
+            "Lkxpc3RTZXNzaW9uc1Jlc3BvbnNlElAKDUNyZWF0ZVNlc3Npb24SHi5hZ2Vu",
+            "dC52MS5DcmVhdGVTZXNzaW9uUmVxdWVzdBofLmFnZW50LnYxLkNyZWF0ZVNl",
+            "c3Npb25SZXNwb25zZRJHCgpHZXRTZXNzaW9uEhsuYWdlbnQudjEuR2V0U2Vz",
+            "c2lvblJlcXVlc3QaHC5hZ2VudC52MS5HZXRTZXNzaW9uUmVzcG9uc2USUAoN",
+            "RGVsZXRlU2Vzc2lvbhIeLmFnZW50LnYxLkRlbGV0ZVNlc3Npb25SZXF1ZXN0",
+            "Gh8uYWdlbnQudjEuRGVsZXRlU2Vzc2lvblJlc3BvbnNlEk0KDExpc3RNZXNz",
+            "YWdlcxIdLmFnZW50LnYxLkxpc3RNZXNzYWdlc1JlcXVlc3QaHi5hZ2VudC52",
+            "MS5MaXN0TWVzc2FnZXNSZXNwb25zZRI9CgZQcm9tcHQSFy5hZ2VudC52MS5Q",
+            "cm9tcHRSZXF1ZXN0GhguYWdlbnQudjEuUHJvbXB0UmVzcG9uc2UwARJPCgxX",
+            "YXRjaFNlc3Npb24SHS5hZ2VudC52MS5XYXRjaFNlc3Npb25SZXF1ZXN0Gh4u",
+            "YWdlbnQudjEuV2F0Y2hTZXNzaW9uUmVzcG9uc2UwARJSCg1XYXRjaFNlc3Np",
+            "b25zEh4uYWdlbnQudjEuV2F0Y2hTZXNzaW9uc1JlcXVlc3QaHy5hZ2VudC52",
+            "MS5XYXRjaFNlc3Npb25zUmVzcG9uc2UwARI1CgRGb3JrEhUuYWdlbnQudjEu",
+            "Rm9ya1JlcXVlc3QaFi5hZ2VudC52MS5Gb3JrUmVzcG9uc2USOwoGUmVuYW1l",
+            "EhcuYWdlbnQudjEuUmVuYW1lUmVxdWVzdBoYLmFnZW50LnYxLlJlbmFtZVJl",
+            "c3BvbnNlEkEKCFNldE1vZGVsEhkuYWdlbnQudjEuU2V0TW9kZWxSZXF1ZXN0",
+            "GhouYWdlbnQudjEuU2V0TW9kZWxSZXNwb25zZRI1CgRVbmRvEhUuYWdlbnQu",
+            "djEuVW5kb1JlcXVlc3QaFi5hZ2VudC52MS5VbmRvUmVzcG9uc2USOAoFU3Rh",
+            "dGUSFi5hZ2VudC52MS5TdGF0ZVJlcXVlc3QaFy5hZ2VudC52MS5TdGF0ZVJl",
+            "c3BvbnNlEj4KB01haWxib3gSGC5hZ2VudC52MS5NYWlsYm94UmVxdWVzdBoZ",
+            "LmFnZW50LnYxLk1haWxib3hSZXNwb25zZRJTCg5VcGRhdGVTZXR0aW5ncxIf",
+            "LmFnZW50LnYxLlVwZGF0ZVNldHRpbmdzUmVxdWVzdBogLmFnZW50LnYxLlVw",
+            "ZGF0ZVNldHRpbmdzUmVzcG9uc2USRAoJSW50ZXJydXB0EhouYWdlbnQudjEu",
+            "SW50ZXJydXB0UmVxdWVzdBobLmFnZW50LnYxLkludGVycnVwdFJlc3BvbnNl",
+            "Ej4KB0NvbXBhY3QSGC5hZ2VudC52MS5Db21wYWN0UmVxdWVzdBoZLmFnZW50",
+            "LnYxLkNvbXBhY3RSZXNwb25zZRJQCg1MaXN0UHJvdmlkZXJzEh4uYWdlbnQu",
+            "djEuTGlzdFByb3ZpZGVyc1JlcXVlc3QaHy5hZ2VudC52MS5MaXN0UHJvdmlk",
+            "ZXJzUmVzcG9uc2USZQoUTGlzdFByb3ZpZGVyc0NhdGFsb2cSJS5hZ2VudC52",
+            "MS5MaXN0UHJvdmlkZXJzQ2F0YWxvZ1JlcXVlc3QaJi5hZ2VudC52MS5MaXN0",
+            "UHJvdmlkZXJzQ2F0YWxvZ1Jlc3BvbnNlElkKEFJlZ2lzdGVyUHJvdmlkZXIS",
+            "IS5hZ2VudC52MS5SZWdpc3RlclByb3ZpZGVyUmVxdWVzdBoiLmFnZW50LnYx",
+            "LlJlZ2lzdGVyUHJvdmlkZXJSZXNwb25zZRJTCg5EZWxldGVQcm92aWRlchIf",
+            "LmFnZW50LnYxLkRlbGV0ZVByb3ZpZGVyUmVxdWVzdBogLmFnZW50LnYxLkRl",
+            "bGV0ZVByb3ZpZGVyUmVzcG9uc2USTQoMVGVzdFByb3ZpZGVyEh0uYWdlbnQu",
+            "djEuVGVzdFByb3ZpZGVyUmVxdWVzdBoeLmFnZW50LnYxLlRlc3RQcm92aWRl",
+            "clJlc3BvbnNlEkcKCkxpc3RNb2RlbHMSGy5hZ2VudC52MS5MaXN0TW9kZWxz",
+            "UmVxdWVzdBocLmFnZW50LnYxLkxpc3RNb2RlbHNSZXNwb25zZRJKCgtMaXN0",
+            "UHJlc2V0cxIcLmFnZW50LnYxLkxpc3RQcmVzZXRzUmVxdWVzdBodLmFnZW50",
+            "LnYxLkxpc3RQcmVzZXRzUmVzcG9uc2USTQoMVXBzZXJ0UHJlc2V0Eh0uYWdl",
+            "bnQudjEuVXBzZXJ0UHJlc2V0UmVxdWVzdBoeLmFnZW50LnYxLlVwc2VydFBy",
+            "ZXNldFJlc3BvbnNlEk0KDERlbGV0ZVByZXNldBIdLmFnZW50LnYxLkRlbGV0",
+            "ZVByZXNldFJlcXVlc3QaHi5hZ2VudC52MS5EZWxldGVQcmVzZXRSZXNwb25z",
+            "ZRJQCg1QcmV2aWV3UHJlc2V0Eh4uYWdlbnQudjEuUHJldmlld1ByZXNldFJl",
+            "cXVlc3QaHy5hZ2VudC52MS5QcmV2aWV3UHJlc2V0UmVzcG9uc2USRAoJR2V0",
+            "Q29uZmlnEhouYWdlbnQudjEuR2V0Q29uZmlnUmVxdWVzdBobLmFnZW50LnYx",
+            "LkdldENvbmZpZ1Jlc3BvbnNlEkQKCVNldENvbmZpZxIaLmFnZW50LnYxLlNl",
+            "dENvbmZpZ1JlcXVlc3QaGy5hZ2VudC52MS5TZXRDb25maWdSZXNwb25zZRJE",
+            "CglMaXN0VG9vbHMSGi5hZ2VudC52MS5MaXN0VG9vbHNSZXF1ZXN0GhsuYWdl",
+            "bnQudjEuTGlzdFRvb2xzUmVzcG9uc2USUAoNR2V0VG9vbENvbmZpZxIeLmFn",
+            "ZW50LnYxLkdldFRvb2xDb25maWdSZXF1ZXN0Gh8uYWdlbnQudjEuR2V0VG9v",
+            "bENvbmZpZ1Jlc3BvbnNlElAKDVNldFRvb2xDb25maWcSHi5hZ2VudC52MS5T",
+            "ZXRUb29sQ29uZmlnUmVxdWVzdBofLmFnZW50LnYxLlNldFRvb2xDb25maWdS",
+            "ZXNwb25zZRJfChJTZXRFeHRlbnNpb25Db25maWcSIy5hZ2VudC52MS5TZXRF",
+            "eHRlbnNpb25Db25maWdSZXF1ZXN0GiQuYWdlbnQudjEuU2V0RXh0ZW5zaW9u",
+            "Q29uZmlnUmVzcG9uc2USRwoKVXBsb2FkRmlsZRIbLmFnZW50LnYxLlVwbG9h",
+            "ZEZpbGVSZXF1ZXN0GhwuYWdlbnQudjEuVXBsb2FkRmlsZVJlc3BvbnNlEkcK",
+            "CkluZ2VzdEZpbGUSGy5hZ2VudC52MS5Jbmdlc3RGaWxlUmVxdWVzdBocLmFn",
+            "ZW50LnYxLkluZ2VzdEZpbGVSZXNwb25zZRI+CgdHZXRGaWxlEhguYWdlbnQu",
+            "djEuR2V0RmlsZVJlcXVlc3QaGS5hZ2VudC52MS5HZXRGaWxlUmVzcG9uc2US",
+            "SgoLR2V0RmlsZU1ldGESHC5hZ2VudC52MS5HZXRGaWxlTWV0YVJlcXVlc3Qa",
+            "HS5hZ2VudC52MS5HZXRGaWxlTWV0YVJlc3BvbnNlElMKDkdldEFnZW50Q29u",
+            "ZmlnEh8uYWdlbnQudjEuR2V0QWdlbnRDb25maWdSZXF1ZXN0GiAuYWdlbnQu",
+            "djEuR2V0QWdlbnRDb25maWdSZXNwb25zZTK5BQoMQWRtaW5TZXJ2aWNlEkoK",
+            "C0xpc3RUZW5hbnRzEhwuYWdlbnQudjEuTGlzdFRlbmFudHNSZXF1ZXN0Gh0u",
+            "YWdlbnQudjEuTGlzdFRlbmFudHNSZXNwb25zZRJNCgxDcmVhdGVUZW5hbnQS",
+            "HS5hZ2VudC52MS5DcmVhdGVUZW5hbnRSZXF1ZXN0Gh4uYWdlbnQudjEuQ3Jl",
+            "YXRlVGVuYW50UmVzcG9uc2USTQoMVXBkYXRlVGVuYW50Eh0uYWdlbnQudjEu",
+            "VXBkYXRlVGVuYW50UmVxdWVzdBoeLmFnZW50LnYxLlVwZGF0ZVRlbmFudFJl",
+            "c3BvbnNlEk0KDERlbGV0ZVRlbmFudBIdLmFnZW50LnYxLkRlbGV0ZVRlbmFu",
+            "dFJlcXVlc3QaHi5hZ2VudC52MS5EZWxldGVUZW5hbnRSZXNwb25zZRJZChBJ",
+            "c3N1ZVRlbmFudFRva2VuEiEuYWdlbnQudjEuSXNzdWVUZW5hbnRUb2tlblJl",
+            "cXVlc3QaIi5hZ2VudC52MS5Jc3N1ZVRlbmFudFRva2VuUmVzcG9uc2USWQoQ",
+            "TGlzdFRlbmFudFRva2VucxIhLmFnZW50LnYxLkxpc3RUZW5hbnRUb2tlbnNS",
+            "ZXF1ZXN0GiIuYWdlbnQudjEuTGlzdFRlbmFudFRva2Vuc1Jlc3BvbnNlElwK",
+            "EVJldm9rZVRlbmFudFRva2VuEiIuYWdlbnQudjEuUmV2b2tlVGVuYW50VG9r",
+            "ZW5SZXF1ZXN0GiMuYWdlbnQudjEuUmV2b2tlVGVuYW50VG9rZW5SZXNwb25z",
+            "ZRJcChFSb3RhdGVUZW5hbnRUb2tlbhIiLmFnZW50LnYxLlJvdGF0ZVRlbmFu",
+            "dFRva2VuUmVxdWVzdBojLmFnZW50LnYxLlJvdGF0ZVRlbmFudFRva2VuUmVz",
+            "cG9uc2VCM1oxZ2l0aHViLmNvbS9hYmNwLXNkay9hZ2VudC1zZGstZ28vYWdl",
+            "bnQvdjE7YWdlbnR2MWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Session), global::Easyrpc.Agent.V1.Session.Parser, new[]{ "Name", "Model", "Preset", "TipId", "MaxTurns", "SystemPrompt", "InputTokens", "OutputTokens", "TotalTokens", "LastInputTokens", "LastOutputTokens", "CreatedAt", "UpdatedAt", "LastUsedAt", "Locale", "Org", "Repo", "Branch", "UnreadCount", "LastMessageAt", "LastMessagePreview", "Variant", "MessageSeq" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Session), global::Easyrpc.Agent.V1.Session.Parser, new[]{ "Name", "Model", "Preset", "TipId", "MaxTurns", "SystemPrompt", "InputTokens", "OutputTokens", "TotalTokens", "LastInputTokens", "LastOutputTokens", "CreatedAt", "UpdatedAt", "LastUsedAt", "Locale", "Org", "Repo", "Branch", "UnreadCount", "LastMessageAt", "LastMessagePreview", "Variant", "MessageSeq", "Group" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Message), global::Easyrpc.Agent.V1.Message.Parser, new[]{ "Id", "Role", "PrevId", "CreatedAt", "Parts" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Part), global::Easyrpc.Agent.V1.Part.Parser, new[]{ "Id", "MessageId", "Type", "Seq", "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.MailboxEntry), global::Easyrpc.Agent.V1.MailboxEntry.Parser, new[]{ "Id", "SessionName", "MsgType", "Payload", "EffectiveAt", "Status", "CreatedAt", "ConsumedAt", "Seq" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Preset), global::Easyrpc.Agent.V1.Preset.Parser, new[]{ "Id", "SystemPrompt", "SystemPromptI18N", "Tools", "MaxTurns", "IsSystem" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Provider), global::Easyrpc.Agent.V1.Provider.Parser, new[]{ "ProviderId", "ApiType", "BaseUrl", "ApiKey", "Headers", "Models", "UpdatedAt" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.Provider), global::Easyrpc.Agent.V1.Provider.Parser, new[]{ "ProviderId", "ApiType", "BaseUrl", "ApiKey", "Headers", "Models", "UpdatedAt", "Capability" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ProviderModel), global::Easyrpc.Agent.V1.ProviderModel.Parser, new[]{ "Id", "Name", "ContextLimit", "ModelType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ToolInfo), global::Easyrpc.Agent.V1.ToolInfo.Parser, new[]{ "Name", "Description", "Category", "Parameters", "ConfigFields", "RequiredConfig" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ToolConfigField), global::Easyrpc.Agent.V1.ToolConfigField.Parser, new[]{ "Name", "Type", "EnumValues", "Default", "Description", "Scope" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ToolConfigField), global::Easyrpc.Agent.V1.ToolConfigField.Parser, new[]{ "Name", "Type", "EnumValues", "Default", "Description", "Scope", "Kind", "Capability" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ToolConfig), global::Easyrpc.Agent.V1.ToolConfig.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.PromptResponse), global::Easyrpc.Agent.V1.PromptResponse.Parser, new[]{ "Event", "Params", "Eid" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.WatchSessionRequest), global::Easyrpc.Agent.V1.WatchSessionRequest.Parser, new[]{ "Id", "Since" }, null, null, null, null),
@@ -362,7 +301,7 @@ namespace Easyrpc.Agent.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.FileRef), global::Easyrpc.Agent.V1.FileRef.Parser, new[]{ "Code", "Name", "Mime", "Size" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListSessionsRequest), global::Easyrpc.Agent.V1.ListSessionsRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListSessionsResponse), global::Easyrpc.Agent.V1.ListSessionsResponse.Parser, new[]{ "Sessions" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.CreateSessionRequest), global::Easyrpc.Agent.V1.CreateSessionRequest.Parser, new[]{ "Name", "Model", "Preset", "Org", "Repo", "Branch", "Variant" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.CreateSessionRequest), global::Easyrpc.Agent.V1.CreateSessionRequest.Parser, new[]{ "Name", "Model", "Preset", "Org", "Repo", "Branch", "Variant", "Group" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.CreateSessionResponse), global::Easyrpc.Agent.V1.CreateSessionResponse.Parser, new[]{ "Ok", "SessionName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.GetSessionRequest), global::Easyrpc.Agent.V1.GetSessionRequest.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.GetSessionResponse), global::Easyrpc.Agent.V1.GetSessionResponse.Parser, new[]{ "Session" }, null, null, null, null),
@@ -383,7 +322,7 @@ namespace Easyrpc.Agent.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.StateResponse), global::Easyrpc.Agent.V1.StateResponse.Parser, new[]{ "State" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.MailboxRequest), global::Easyrpc.Agent.V1.MailboxRequest.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.MailboxResponse), global::Easyrpc.Agent.V1.MailboxResponse.Parser, new[]{ "Ok", "Mailbox" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.UpdateSettingsRequest), global::Easyrpc.Agent.V1.UpdateSettingsRequest.Parser, new[]{ "Id", "Model", "Preset", "MaxTurns", "SystemPrompt", "Locale", "Variant" }, new[]{ "MaxTurns" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.UpdateSettingsRequest), global::Easyrpc.Agent.V1.UpdateSettingsRequest.Parser, new[]{ "Id", "Model", "Preset", "MaxTurns", "SystemPrompt", "Locale", "Variant", "Group" }, new[]{ "MaxTurns", "Group" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.UpdateSettingsResponse), global::Easyrpc.Agent.V1.UpdateSettingsResponse.Parser, new[]{ "Session" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.InterruptRequest), global::Easyrpc.Agent.V1.InterruptRequest.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.InterruptResponse), global::Easyrpc.Agent.V1.InterruptResponse.Parser, new[]{ "Ok", "Interrupted" }, null, null, null, null),
@@ -392,12 +331,10 @@ namespace Easyrpc.Agent.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListProvidersRequest), global::Easyrpc.Agent.V1.ListProvidersRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListProvidersResponse), global::Easyrpc.Agent.V1.ListProvidersResponse.Parser, new[]{ "Providers" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListProvidersCatalogRequest), global::Easyrpc.Agent.V1.ListProvidersCatalogRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListProvidersCatalogResponse), global::Easyrpc.Agent.V1.ListProvidersCatalogResponse.Parser, new[]{ "Providers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.CatalogProvider), global::Easyrpc.Agent.V1.CatalogProvider.Parser, new[]{ "Id", "Name", "Api", "Npm", "Env", "Models" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ListProvidersCatalogResponse), global::Easyrpc.Agent.V1.ListProvidersCatalogResponse.Parser, new[]{ "ApiTypes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.ApiTypeCatalog), global::Easyrpc.Agent.V1.ApiTypeCatalog.Parser, new[]{ "Capabilities" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.RegisterProviderRequest), global::Easyrpc.Agent.V1.RegisterProviderRequest.Parser, new[]{ "Provider" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.RegisterProviderResponse), global::Easyrpc.Agent.V1.RegisterProviderResponse.Parser, new[]{ "Ok" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.DiscoverGatewayModelsRequest), global::Easyrpc.Agent.V1.DiscoverGatewayModelsRequest.Parser, new[]{ "ProviderId", "ApiType", "BaseUrl", "ApiKey", "Headers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.DiscoverGatewayModelsResponse), global::Easyrpc.Agent.V1.DiscoverGatewayModelsResponse.Parser, new[]{ "Ok", "Error", "Models" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.DeleteProviderRequest), global::Easyrpc.Agent.V1.DeleteProviderRequest.Parser, new[]{ "ProviderId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.DeleteProviderResponse), global::Easyrpc.Agent.V1.DeleteProviderResponse.Parser, new[]{ "Ok" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Easyrpc.Agent.V1.TestProviderRequest), global::Easyrpc.Agent.V1.TestProviderRequest.Parser, new[]{ "ProviderId", "ApiType", "BaseUrl", "ApiKey", "Model", "Variant", "Capability" }, null, null, null, null),
@@ -462,6 +399,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
   #region Messages
+  /// <summary>
+  /// Session is a row in the agent session table.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Session : pb::IMessage<Session>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -520,6 +460,7 @@ namespace Easyrpc.Agent.V1 {
       lastMessagePreview_ = other.lastMessagePreview_;
       variant_ = other.variant_;
       messageSeq_ = other.messageSeq_;
+      group_ = other.group_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -544,6 +485,10 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "model" field.</summary>
     public const int ModelFieldNumber = 2;
     private string model_ = "";
+    /// <summary>
+    /// Canonical model reference "provider_id/model_id". A bare model id is
+    /// never resolved by flat lookup: the provider must be named explicitly.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Model {
@@ -712,6 +657,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "org" field.</summary>
     public const int OrgFieldNumber = 16;
     private string org_ = "";
+    /// <summary>
+    /// UI aggregates.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Org {
@@ -785,7 +733,8 @@ namespace Easyrpc.Agent.V1 {
     public const int VariantFieldNumber = 22;
     private string variant_ = "";
     /// <summary>
-    /// reasoning variant selected for this session (models.dev variant id).
+    /// Selected reasoning variant id (e.g. "low"/"medium"/"high"/"max"/"fast").
+    /// Empty means "no variant" (provider defaults; no providerOptions sent).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -800,7 +749,10 @@ namespace Easyrpc.Agent.V1 {
     public const int MessageSeqFieldNumber = 23;
     private int messageSeq_;
     /// <summary>
-    /// monotonic per-session message counter (WatchSessions realtime list).
+    /// Monotonic per-session message counter, bumped for every appended message
+    /// (user/assistant/event/compaction). Clients derive the unread count as the
+    /// number of messages with seq greater than their locally-persisted read
+    /// watermark (read state is client-local; the agent never stores it).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -808,6 +760,24 @@ namespace Easyrpc.Agent.V1 {
       get { return messageSeq_; }
       set {
         messageSeq_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "group" field.</summary>
+    public const int GroupFieldNumber = 24;
+    private string group_ = "";
+    /// <summary>
+    /// Generic grouping key for a session (free-form, tenant-scoped). Empty =
+    /// ungrouped. A subsession records its parent's session name here, but the
+    /// field is deliberately generic: any client may group sessions arbitrarily
+    /// (project, workspace, task…). Not validated against an enum.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Group {
+      get { return group_; }
+      set {
+        group_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -849,6 +819,7 @@ namespace Easyrpc.Agent.V1 {
       if (LastMessagePreview != other.LastMessagePreview) return false;
       if (Variant != other.Variant) return false;
       if (MessageSeq != other.MessageSeq) return false;
+      if (Group != other.Group) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -879,6 +850,7 @@ namespace Easyrpc.Agent.V1 {
       if (LastMessagePreview.Length != 0) hash ^= LastMessagePreview.GetHashCode();
       if (Variant.Length != 0) hash ^= Variant.GetHashCode();
       if (MessageSeq != 0) hash ^= MessageSeq.GetHashCode();
+      if (Group.Length != 0) hash ^= Group.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -989,6 +961,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(184, 1);
         output.WriteInt32(MessageSeq);
       }
+      if (Group.Length != 0) {
+        output.WriteRawTag(194, 1);
+        output.WriteString(Group);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1091,6 +1067,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(184, 1);
         output.WriteInt32(MessageSeq);
       }
+      if (Group.Length != 0) {
+        output.WriteRawTag(194, 1);
+        output.WriteString(Group);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1169,6 +1149,9 @@ namespace Easyrpc.Agent.V1 {
       }
       if (MessageSeq != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(MessageSeq);
+      }
+      if (Group.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Group);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1250,6 +1233,9 @@ namespace Easyrpc.Agent.V1 {
       }
       if (other.MessageSeq != 0) {
         MessageSeq = other.MessageSeq;
+      }
+      if (other.Group.Length != 0) {
+        Group = other.Group;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1360,6 +1346,10 @@ namespace Easyrpc.Agent.V1 {
           }
           case 184: {
             MessageSeq = input.ReadInt32();
+            break;
+          }
+          case 194: {
+            Group = input.ReadString();
             break;
           }
         }
@@ -1473,6 +1463,10 @@ namespace Easyrpc.Agent.V1 {
             MessageSeq = input.ReadInt32();
             break;
           }
+          case 194: {
+            Group = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -1480,6 +1474,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Message row (bare).
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Message : pb::IMessage<Message>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1815,6 +1812,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// A tool/text part body. `data` is the JSON/plain payload.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Part : pb::IMessage<Part>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -2161,6 +2161,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Mailbox entry.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class MailboxEntry : pb::IMessage<MailboxEntry>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -2655,6 +2658,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Preset row.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Preset : pb::IMessage<Preset>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3027,6 +3033,12 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Provider row. A provider serves EXACTLY ONE modality (`capability`): its
+  /// models all share that capability. A host that serves several modalities is
+  /// registered once per modality (semantic grouping), so a modality's model
+  /// picker is simply "the models of that modality's providers".
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Provider : pb::IMessage<Provider>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3069,6 +3081,7 @@ namespace Easyrpc.Agent.V1 {
       headers_ = other.headers_.Clone();
       models_ = other.models_.Clone();
       updatedAt_ = other.updatedAt_;
+      capability_ = other.capability_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3160,6 +3173,22 @@ namespace Easyrpc.Agent.V1 {
       }
     }
 
+    /// <summary>Field number for the "capability" field.</summary>
+    public const int CapabilityFieldNumber = 8;
+    private string capability_ = "";
+    /// <summary>
+    /// The single modality this provider serves (text | image | video | speech |
+    /// transcription | embedding | rerank | realtime). New field (no renumber).
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Capability {
+      get { return capability_; }
+      set {
+        capability_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3182,6 +3211,7 @@ namespace Easyrpc.Agent.V1 {
       if (!Headers.Equals(other.Headers)) return false;
       if(!models_.Equals(other.models_)) return false;
       if (UpdatedAt != other.UpdatedAt) return false;
+      if (Capability != other.Capability) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3196,6 +3226,7 @@ namespace Easyrpc.Agent.V1 {
       hash ^= Headers.GetHashCode();
       hash ^= models_.GetHashCode();
       if (UpdatedAt.Length != 0) hash ^= UpdatedAt.GetHashCode();
+      if (Capability.Length != 0) hash ^= Capability.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3236,6 +3267,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(58);
         output.WriteString(UpdatedAt);
       }
+      if (Capability.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Capability);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3268,6 +3303,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(58);
         output.WriteString(UpdatedAt);
       }
+      if (Capability.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Capability);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3294,6 +3333,9 @@ namespace Easyrpc.Agent.V1 {
       size += models_.CalculateSize(_repeated_models_codec);
       if (UpdatedAt.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UpdatedAt);
+      }
+      if (Capability.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Capability);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3323,6 +3365,9 @@ namespace Easyrpc.Agent.V1 {
       models_.Add(other.models_);
       if (other.UpdatedAt.Length != 0) {
         UpdatedAt = other.UpdatedAt;
+      }
+      if (other.Capability.Length != 0) {
+        Capability = other.Capability;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3369,6 +3414,10 @@ namespace Easyrpc.Agent.V1 {
           }
           case 58: {
             UpdatedAt = input.ReadString();
+            break;
+          }
+          case 66: {
+            Capability = input.ReadString();
             break;
           }
         }
@@ -3418,6 +3467,10 @@ namespace Easyrpc.Agent.V1 {
             UpdatedAt = input.ReadString();
             break;
           }
+          case 66: {
+            Capability = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -3425,6 +3478,18 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Provider model entry. All of a provider's models share the provider's
+  /// `capability`; `model_type` mirrors it (kept for wire compatibility and for
+  /// clients that read the model directly).
+  ///
+  ///   - text      -> context_limit (> 0) REQUIRED (drives compaction budgets)
+  ///   - non-text  -> context_limit MUST be 0 (not a chat model)
+  ///
+  /// A provider protocol may serve any modality its wire format supports
+  /// (validated server-side against the capability matrix — see
+  /// ListProvidersCatalog). There is no gateway special-casing.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProviderModel : pb::IMessage<ProviderModel>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3500,9 +3565,6 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "context_limit" field.</summary>
     public const int ContextLimitFieldNumber = 3;
     private long contextLimit_;
-    /// <summary>
-    /// required for non-gateway providers; 0 for gateway-classified kinds.
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ContextLimit {
@@ -3516,7 +3578,7 @@ namespace Easyrpc.Agent.V1 {
     public const int ModelTypeFieldNumber = 4;
     private string modelType_ = "";
     /// <summary>
-    /// text | image | video | speech | transcription | embedding | reranking.
+    /// The model's modality, identical to its provider's `capability`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3740,6 +3802,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Tool discovery entry.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ToolInfo : pb::IMessage<ToolInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -4110,6 +4175,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Declared config knob for a tool/extension.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ToolConfigField : pb::IMessage<ToolConfigField>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -4151,6 +4219,8 @@ namespace Easyrpc.Agent.V1 {
       default_ = other.default_ != null ? other.default_.Clone() : null;
       description_ = other.description_;
       scope_ = other.scope_;
+      kind_ = other.kind_;
+      capability_ = other.capability_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4231,6 +4301,40 @@ namespace Easyrpc.Agent.V1 {
       }
     }
 
+    /// <summary>Field number for the "kind" field.</summary>
+    public const int KindFieldNumber = 9;
+    private string kind_ = "";
+    /// <summary>
+    /// Semantic kind: "value" (default, an ordinary knob) or "model" (the value
+    /// is a `provider_id/model_id` reference; the client renders a picker scoped
+    /// to `capability` against the provider registry instead of a text field).
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Kind {
+      get { return kind_; }
+      set {
+        kind_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "capability" field.</summary>
+    public const int CapabilityFieldNumber = 10;
+    private string capability_ = "";
+    /// <summary>
+    /// Required when `kind == "model"`: the modality the reference must match
+    /// (text | image | video | speech | transcription | embedding | rerank |
+    /// realtime).
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Capability {
+      get { return capability_; }
+      set {
+        capability_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4252,6 +4356,8 @@ namespace Easyrpc.Agent.V1 {
       if (!object.Equals(Default, other.Default)) return false;
       if (Description != other.Description) return false;
       if (Scope != other.Scope) return false;
+      if (Kind != other.Kind) return false;
+      if (Capability != other.Capability) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4265,6 +4371,8 @@ namespace Easyrpc.Agent.V1 {
       if (default_ != null) hash ^= Default.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (Scope.Length != 0) hash ^= Scope.GetHashCode();
+      if (Kind.Length != 0) hash ^= Kind.GetHashCode();
+      if (Capability.Length != 0) hash ^= Capability.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4304,6 +4412,14 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(66);
         output.WriteString(Scope);
       }
+      if (Kind.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Kind);
+      }
+      if (Capability.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Capability);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4335,6 +4451,14 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(66);
         output.WriteString(Scope);
       }
+      if (Kind.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Kind);
+      }
+      if (Capability.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Capability);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4360,6 +4484,12 @@ namespace Easyrpc.Agent.V1 {
       }
       if (Scope.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Scope);
+      }
+      if (Kind.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Kind);
+      }
+      if (Capability.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Capability);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4391,6 +4521,12 @@ namespace Easyrpc.Agent.V1 {
       }
       if (other.Scope.Length != 0) {
         Scope = other.Scope;
+      }
+      if (other.Kind.Length != 0) {
+        Kind = other.Kind;
+      }
+      if (other.Capability.Length != 0) {
+        Capability = other.Capability;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4436,6 +4572,14 @@ namespace Easyrpc.Agent.V1 {
           }
           case 66: {
             Scope = input.ReadString();
+            break;
+          }
+          case 74: {
+            Kind = input.ReadString();
+            break;
+          }
+          case 82: {
+            Capability = input.ReadString();
             break;
           }
         }
@@ -4484,6 +4628,14 @@ namespace Easyrpc.Agent.V1 {
             Scope = input.ReadString();
             break;
           }
+          case 74: {
+            Kind = input.ReadString();
+            break;
+          }
+          case 82: {
+            Capability = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -4491,6 +4643,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// A tool's configured value.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ToolConfig : pb::IMessage<ToolConfig>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -4678,6 +4833,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// SSE-ish stream event emitted by Prompt streaming.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PromptResponse : pb::IMessage<PromptResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -4728,6 +4886,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "event" field.</summary>
     public const int EventFieldNumber = 1;
     private string event_ = "";
+    /// <summary>
+    /// status | text-delta | tool-call | tool-result | error | turn-complete
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Event {
@@ -4939,6 +5100,13 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// WatchSession streams live session events (the Connect replacement for the
+  /// SSE /stream endpoint): turn deltas, tool calls, errors and completions.
+  /// `since` is a message id ANCHOR for incremental replay: when set, a replay
+  /// starts AFTER that message (so a client that was offline still catches the
+  /// turns that completed meanwhile). Empty = live-from-now (or the active run).
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WatchSessionRequest : pb::IMessage<WatchSessionRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5455,6 +5623,11 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// WatchSessions streams the session list in real time: an initial full
+  /// snapshot, then per-session upserts (message-fact changes, settings changes)
+  /// and removals (deletes). Replaces list polling.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WatchSessionsRequest : pb::IMessage<WatchSessionsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5668,6 +5841,9 @@ namespace Easyrpc.Agent.V1 {
     private static readonly pb::FieldCodec<global::Easyrpc.Agent.V1.Session> _repeated_upserts_codec
         = pb::FieldCodec.ForMessage(10, global::Easyrpc.Agent.V1.Session.Parser);
     private readonly pbc::RepeatedField<global::Easyrpc.Agent.V1.Session> upserts_ = new pbc::RepeatedField<global::Easyrpc.Agent.V1.Session>();
+    /// <summary>
+    /// New/updated session snapshots (message facts + settings).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::Easyrpc.Agent.V1.Session> Upserts {
@@ -5679,6 +5855,9 @@ namespace Easyrpc.Agent.V1 {
     private static readonly pb::FieldCodec<string> _repeated_removed_codec
         = pb::FieldCodec.ForString(18);
     private readonly pbc::RepeatedField<string> removed_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// Session names that were removed.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> Removed {
@@ -5688,6 +5867,10 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "snapshot" field.</summary>
     public const int SnapshotFieldNumber = 3;
     private bool snapshot_;
+    /// <summary>
+    /// True for the initial full snapshot: the client replaces its whole list
+    /// with `upserts` (dropping anything not present) instead of merging.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Snapshot {
@@ -5866,6 +6049,9 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// A file reference (attachment).
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FileRef : pb::IMessage<FileRef>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -6565,6 +6751,7 @@ namespace Easyrpc.Agent.V1 {
       repo_ = other.repo_;
       branch_ = other.branch_;
       variant_ = other.variant_;
+      group_ = other.group_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -6589,6 +6776,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "model" field.</summary>
     public const int ModelFieldNumber = 2;
     private string model_ = "";
+    /// <summary>
+    /// Canonical model reference "provider_id/model_id".
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Model {
@@ -6649,12 +6839,31 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "variant" field.</summary>
     public const int VariantFieldNumber = 7;
     private string variant_ = "";
+    /// <summary>
+    /// Optional reasoning variant id (see ModelInfo.variants).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variant {
       get { return variant_; }
       set {
         variant_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "group" field.</summary>
+    public const int GroupFieldNumber = 8;
+    private string group_ = "";
+    /// <summary>
+    /// Optional generic grouping key (empty = ungrouped). A subsession sets this
+    /// to its parent session name.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Group {
+      get { return group_; }
+      set {
+        group_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -6680,6 +6889,7 @@ namespace Easyrpc.Agent.V1 {
       if (Repo != other.Repo) return false;
       if (Branch != other.Branch) return false;
       if (Variant != other.Variant) return false;
+      if (Group != other.Group) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -6694,6 +6904,7 @@ namespace Easyrpc.Agent.V1 {
       if (Repo.Length != 0) hash ^= Repo.GetHashCode();
       if (Branch.Length != 0) hash ^= Branch.GetHashCode();
       if (Variant.Length != 0) hash ^= Variant.GetHashCode();
+      if (Group.Length != 0) hash ^= Group.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6740,6 +6951,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(58);
         output.WriteString(Variant);
       }
+      if (Group.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Group);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6778,6 +6993,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(58);
         output.WriteString(Variant);
       }
+      if (Group.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Group);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6808,6 +7027,9 @@ namespace Easyrpc.Agent.V1 {
       }
       if (Variant.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Variant);
+      }
+      if (Group.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Group);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -6841,6 +7063,9 @@ namespace Easyrpc.Agent.V1 {
       }
       if (other.Variant.Length != 0) {
         Variant = other.Variant;
+      }
+      if (other.Group.Length != 0) {
+        Group = other.Group;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -6889,6 +7114,10 @@ namespace Easyrpc.Agent.V1 {
             Variant = input.ReadString();
             break;
           }
+          case 66: {
+            Group = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -6934,6 +7163,10 @@ namespace Easyrpc.Agent.V1 {
           }
           case 58: {
             Variant = input.ReadString();
+            break;
+          }
+          case 66: {
+            Group = input.ReadString();
             break;
           }
         }
@@ -7979,6 +8212,20 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// ListMessages reads a session's message chain. Two modes:
+  ///   * ANCHORED / incremental: `after` is a message id ANCHOR (a pin) the
+  ///     client already has. The response is the chain segment AFTER it, i.e. the
+  ///     walk from the current tip back to (excluding) that anchor — the messages
+  ///     appended since the client last synced. If the anchor is NOT on the
+  ///     current chain (it was withdrawn via undo, or the chain was forked), the
+  ///     response sets `resync=true` and the client must drop its cache and
+  ///     re-fetch. `tip_id` always echoes the current tip so the client can store
+  ///     it as the next anchor.
+  ///   * BACKWARD paging (existing): with `before` set (and `after` empty) the
+  ///     chain is read oldest→newest for `limit` messages BEFORE that cursor;
+  ///     with neither set, the newest `limit` messages.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListMessagesRequest : pb::IMessage<ListMessagesRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -8054,6 +8301,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "before" field.</summary>
     public const int BeforeFieldNumber = 3;
     private string before_ = "";
+    /// <summary>
+    /// Backward-paging cursor (exclusive): return messages before this id.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Before {
@@ -8066,6 +8316,10 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "after" field.</summary>
     public const int AfterFieldNumber = 4;
     private string after_ = "";
+    /// <summary>
+    /// Incremental anchor (exclusive): return messages after this id. When the
+    /// anchor is absent from the current chain, the server signals `resync`.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string After {
@@ -8362,6 +8616,10 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "resync" field.</summary>
     public const int ResyncFieldNumber = 3;
     private bool resync_;
+    /// <summary>
+    /// The anchor was not on the current chain (withdrawn/forked): the client
+    /// must discard its local copy of this session and re-fetch from scratch.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Resync {
@@ -8374,6 +8632,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "tip_id" field.</summary>
     public const int TipIdFieldNumber = 4;
     private string tipId_ = "";
+    /// <summary>
+    /// Current chain tip id (store as the next `after` anchor).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string TipId {
@@ -11597,6 +11858,7 @@ namespace Easyrpc.Agent.V1 {
       systemPrompt_ = other.systemPrompt_;
       locale_ = other.locale_;
       variant_ = other.variant_;
+      group_ = other.group_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -11647,6 +11909,10 @@ namespace Easyrpc.Agent.V1 {
     private readonly static int MaxTurnsDefaultValue = 0;
 
     private int maxTurns_;
+    /// <summary>
+    /// Optional: omitted means "inherit (preset / default)"; an explicit value
+    /// must be > 0 (0 is rejected).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int MaxTurns {
@@ -11696,6 +11962,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "variant" field.</summary>
     public const int VariantFieldNumber = 7;
     private string variant_ = "";
+    /// <summary>
+    /// Selected reasoning variant id (empty clears it).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variant {
@@ -11703,6 +11972,36 @@ namespace Easyrpc.Agent.V1 {
       set {
         variant_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+
+    /// <summary>Field number for the "group" field.</summary>
+    public const int GroupFieldNumber = 8;
+    private readonly static string GroupDefaultValue = "";
+
+    private string group_;
+    /// <summary>
+    /// Generic grouping key (empty clears it). Included for completeness; the
+    /// subsession flow sets it at creation time.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Group {
+      get { return group_ ?? GroupDefaultValue; }
+      set {
+        group_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "group" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGroup {
+      get { return group_ != null; }
+    }
+    /// <summary>Clears the value of the "group" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGroup() {
+      group_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11727,6 +12026,7 @@ namespace Easyrpc.Agent.V1 {
       if (SystemPrompt != other.SystemPrompt) return false;
       if (Locale != other.Locale) return false;
       if (Variant != other.Variant) return false;
+      if (Group != other.Group) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -11741,6 +12041,7 @@ namespace Easyrpc.Agent.V1 {
       if (SystemPrompt.Length != 0) hash ^= SystemPrompt.GetHashCode();
       if (Locale.Length != 0) hash ^= Locale.GetHashCode();
       if (Variant.Length != 0) hash ^= Variant.GetHashCode();
+      if (HasGroup) hash ^= Group.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -11787,6 +12088,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(58);
         output.WriteString(Variant);
       }
+      if (HasGroup) {
+        output.WriteRawTag(66);
+        output.WriteString(Group);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -11825,6 +12130,10 @@ namespace Easyrpc.Agent.V1 {
         output.WriteRawTag(58);
         output.WriteString(Variant);
       }
+      if (HasGroup) {
+        output.WriteRawTag(66);
+        output.WriteString(Group);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -11855,6 +12164,9 @@ namespace Easyrpc.Agent.V1 {
       }
       if (Variant.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Variant);
+      }
+      if (HasGroup) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Group);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -11888,6 +12200,9 @@ namespace Easyrpc.Agent.V1 {
       }
       if (other.Variant.Length != 0) {
         Variant = other.Variant;
+      }
+      if (other.HasGroup) {
+        Group = other.Group;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -11936,6 +12251,10 @@ namespace Easyrpc.Agent.V1 {
             Variant = input.ReadString();
             break;
           }
+          case 66: {
+            Group = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -11981,6 +12300,10 @@ namespace Easyrpc.Agent.V1 {
           }
           case 58: {
             Variant = input.ReadString();
+            break;
+          }
+          case 66: {
+            Group = input.ReadString();
             break;
           }
         }
@@ -13535,6 +13858,12 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// The registration catalog: every provider api type the server accepts and
+  /// the model capabilities each can serve. Single source of truth for client
+  /// registration forms — clients fetch this instead of hardcoding the matrix
+  /// (with a bundled fallback copy for offline use).
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListProvidersCatalogResponse : pb::IMessage<ListProvidersCatalogResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -13570,7 +13899,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ListProvidersCatalogResponse(ListProvidersCatalogResponse other) : this() {
-      providers_ = other.providers_.Clone();
+      apiTypes_ = other.apiTypes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -13580,15 +13909,18 @@ namespace Easyrpc.Agent.V1 {
       return new ListProvidersCatalogResponse(this);
     }
 
-    /// <summary>Field number for the "providers" field.</summary>
-    public const int ProvidersFieldNumber = 1;
-    private static readonly pbc::MapField<string, global::Easyrpc.Agent.V1.CatalogProvider>.Codec _map_providers_codec
-        = new pbc::MapField<string, global::Easyrpc.Agent.V1.CatalogProvider>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Easyrpc.Agent.V1.CatalogProvider.Parser), 10);
-    private readonly pbc::MapField<string, global::Easyrpc.Agent.V1.CatalogProvider> providers_ = new pbc::MapField<string, global::Easyrpc.Agent.V1.CatalogProvider>();
+    /// <summary>Field number for the "api_types" field.</summary>
+    public const int ApiTypesFieldNumber = 1;
+    private static readonly pbc::MapField<string, global::Easyrpc.Agent.V1.ApiTypeCatalog>.Codec _map_apiTypes_codec
+        = new pbc::MapField<string, global::Easyrpc.Agent.V1.ApiTypeCatalog>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Easyrpc.Agent.V1.ApiTypeCatalog.Parser), 10);
+    private readonly pbc::MapField<string, global::Easyrpc.Agent.V1.ApiTypeCatalog> apiTypes_ = new pbc::MapField<string, global::Easyrpc.Agent.V1.ApiTypeCatalog>();
+    /// <summary>
+    /// api type id (e.g. "openai-compatible") -> its catalog entry.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<string, global::Easyrpc.Agent.V1.CatalogProvider> Providers {
-      get { return providers_; }
+    public pbc::MapField<string, global::Easyrpc.Agent.V1.ApiTypeCatalog> ApiTypes {
+      get { return apiTypes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13606,7 +13938,7 @@ namespace Easyrpc.Agent.V1 {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!Providers.Equals(other.Providers)) return false;
+      if (!ApiTypes.Equals(other.ApiTypes)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -13614,7 +13946,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= Providers.GetHashCode();
+      hash ^= ApiTypes.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -13633,7 +13965,7 @@ namespace Easyrpc.Agent.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      providers_.WriteTo(output, _map_providers_codec);
+      apiTypes_.WriteTo(output, _map_apiTypes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13644,7 +13976,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      providers_.WriteTo(ref output, _map_providers_codec);
+      apiTypes_.WriteTo(ref output, _map_apiTypes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13655,7 +13987,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += providers_.CalculateSize(_map_providers_codec);
+      size += apiTypes_.CalculateSize(_map_apiTypes_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -13668,7 +14000,7 @@ namespace Easyrpc.Agent.V1 {
       if (other == null) {
         return;
       }
-      providers_.MergeFrom(other.providers_);
+      apiTypes_.MergeFrom(other.apiTypes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -13689,7 +14021,7 @@ namespace Easyrpc.Agent.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            providers_.AddEntriesFrom(input, _map_providers_codec);
+            apiTypes_.AddEntriesFrom(input, _map_apiTypes_codec);
             break;
           }
         }
@@ -13712,7 +14044,7 @@ namespace Easyrpc.Agent.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            providers_.AddEntriesFrom(ref input, _map_providers_codec);
+            apiTypes_.AddEntriesFrom(ref input, _map_apiTypes_codec);
             break;
           }
         }
@@ -13722,17 +14054,20 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Catalog entry for one provider api type.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class CatalogProvider : pb::IMessage<CatalogProvider>
+  public sealed partial class ApiTypeCatalog : pb::IMessage<ApiTypeCatalog>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CatalogProvider> _parser = new pb::MessageParser<CatalogProvider>(() => new CatalogProvider());
+    private static readonly pb::MessageParser<ApiTypeCatalog> _parser = new pb::MessageParser<ApiTypeCatalog>(() => new ApiTypeCatalog());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CatalogProvider> Parser { get { return _parser; } }
+    public static pb::MessageParser<ApiTypeCatalog> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13748,7 +14083,7 @@ namespace Easyrpc.Agent.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CatalogProvider() {
+    public ApiTypeCatalog() {
       OnConstruction();
     }
 
@@ -13756,113 +14091,48 @@ namespace Easyrpc.Agent.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CatalogProvider(CatalogProvider other) : this() {
-      id_ = other.id_;
-      name_ = other.name_;
-      api_ = other.api_;
-      npm_ = other.npm_;
-      env_ = other.env_.Clone();
-      models_ = other.models_.Clone();
+    public ApiTypeCatalog(ApiTypeCatalog other) : this() {
+      capabilities_ = other.capabilities_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CatalogProvider Clone() {
-      return new CatalogProvider(this);
+    public ApiTypeCatalog Clone() {
+      return new ApiTypeCatalog(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private string id_ = "";
+    /// <summary>Field number for the "capabilities" field.</summary>
+    public const int CapabilitiesFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_capabilities_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> capabilities_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// Capability tags a model of this api type may declare in `model_type`
+    /// (text | image | video | speech | transcription | embedding | rerank).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Id {
-      get { return id_; }
-      set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "api" field.</summary>
-    public const int ApiFieldNumber = 3;
-    private string api_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Api {
-      get { return api_; }
-      set {
-        api_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "npm" field.</summary>
-    public const int NpmFieldNumber = 4;
-    private string npm_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Npm {
-      get { return npm_; }
-      set {
-        npm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_env_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> env_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<string> Env {
-      get { return env_; }
-    }
-
-    /// <summary>Field number for the "models" field.</summary>
-    public const int ModelsFieldNumber = 6;
-    private static readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value>.Codec _map_models_codec
-        = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::Google.Protobuf.WellKnownTypes.Value.Parser), 50);
-    private readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value> models_ = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Value> Models {
-      get { return models_; }
+    public pbc::RepeatedField<string> Capabilities {
+      get { return capabilities_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as CatalogProvider);
+      return Equals(other as ApiTypeCatalog);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CatalogProvider other) {
+    public bool Equals(ApiTypeCatalog other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
-      if (Name != other.Name) return false;
-      if (Api != other.Api) return false;
-      if (Npm != other.Npm) return false;
-      if(!env_.Equals(other.env_)) return false;
-      if (!Models.Equals(other.Models)) return false;
+      if(!capabilities_.Equals(other.capabilities_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -13870,12 +14140,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Api.Length != 0) hash ^= Api.GetHashCode();
-      if (Npm.Length != 0) hash ^= Npm.GetHashCode();
-      hash ^= env_.GetHashCode();
-      hash ^= Models.GetHashCode();
+      hash ^= capabilities_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -13894,24 +14159,7 @@ namespace Easyrpc.Agent.V1 {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Name);
-      }
-      if (Api.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Api);
-      }
-      if (Npm.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Npm);
-      }
-      env_.WriteTo(output, _repeated_env_codec);
-      models_.WriteTo(output, _map_models_codec);
+      capabilities_.WriteTo(output, _repeated_capabilities_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13922,24 +14170,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Name);
-      }
-      if (Api.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Api);
-      }
-      if (Npm.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Npm);
-      }
-      env_.WriteTo(ref output, _repeated_env_codec);
-      models_.WriteTo(ref output, _map_models_codec);
+      capabilities_.WriteTo(ref output, _repeated_capabilities_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13950,20 +14181,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
-      }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Api.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Api);
-      }
-      if (Npm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Npm);
-      }
-      size += env_.CalculateSize(_repeated_env_codec);
-      size += models_.CalculateSize(_map_models_codec);
+      size += capabilities_.CalculateSize(_repeated_capabilities_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -13972,24 +14190,11 @@ namespace Easyrpc.Agent.V1 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CatalogProvider other) {
+    public void MergeFrom(ApiTypeCatalog other) {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Api.Length != 0) {
-        Api = other.Api;
-      }
-      if (other.Npm.Length != 0) {
-        Npm = other.Npm;
-      }
-      env_.Add(other.env_);
-      models_.MergeFrom(other.models_);
+      capabilities_.Add(other.capabilities_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -14010,27 +14215,7 @@ namespace Easyrpc.Agent.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Id = input.ReadString();
-            break;
-          }
-          case 18: {
-            Name = input.ReadString();
-            break;
-          }
-          case 26: {
-            Api = input.ReadString();
-            break;
-          }
-          case 34: {
-            Npm = input.ReadString();
-            break;
-          }
-          case 42: {
-            env_.AddEntriesFrom(input, _repeated_env_codec);
-            break;
-          }
-          case 50: {
-            models_.AddEntriesFrom(input, _map_models_codec);
+            capabilities_.AddEntriesFrom(input, _repeated_capabilities_codec);
             break;
           }
         }
@@ -14053,27 +14238,7 @@ namespace Easyrpc.Agent.V1 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Id = input.ReadString();
-            break;
-          }
-          case 18: {
-            Name = input.ReadString();
-            break;
-          }
-          case 26: {
-            Api = input.ReadString();
-            break;
-          }
-          case 34: {
-            Npm = input.ReadString();
-            break;
-          }
-          case 42: {
-            env_.AddEntriesFrom(ref input, _repeated_env_codec);
-            break;
-          }
-          case 50: {
-            models_.AddEntriesFrom(ref input, _map_models_codec);
+            capabilities_.AddEntriesFrom(ref input, _repeated_capabilities_codec);
             break;
           }
         }
@@ -14489,602 +14654,6 @@ namespace Easyrpc.Agent.V1 {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class DiscoverGatewayModelsRequest : pb::IMessage<DiscoverGatewayModelsRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<DiscoverGatewayModelsRequest> _parser = new pb::MessageParser<DiscoverGatewayModelsRequest>(() => new DiscoverGatewayModelsRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DiscoverGatewayModelsRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[52]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiscoverGatewayModelsRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiscoverGatewayModelsRequest(DiscoverGatewayModelsRequest other) : this() {
-      providerId_ = other.providerId_;
-      apiType_ = other.apiType_;
-      baseUrl_ = other.baseUrl_;
-      apiKey_ = other.apiKey_;
-      headers_ = other.headers_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiscoverGatewayModelsRequest Clone() {
-      return new DiscoverGatewayModelsRequest(this);
-    }
-
-    /// <summary>Field number for the "provider_id" field.</summary>
-    public const int ProviderIdFieldNumber = 1;
-    private string providerId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ProviderId {
-      get { return providerId_; }
-      set {
-        providerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "api_type" field.</summary>
-    public const int ApiTypeFieldNumber = 2;
-    private string apiType_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ApiType {
-      get { return apiType_; }
-      set {
-        apiType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "base_url" field.</summary>
-    public const int BaseUrlFieldNumber = 3;
-    private string baseUrl_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string BaseUrl {
-      get { return baseUrl_; }
-      set {
-        baseUrl_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "api_key" field.</summary>
-    public const int ApiKeyFieldNumber = 4;
-    private string apiKey_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ApiKey {
-      get { return apiKey_; }
-      set {
-        apiKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "headers" field.</summary>
-    public const int HeadersFieldNumber = 5;
-    private static readonly pbc::MapField<string, string>.Codec _map_headers_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 42);
-    private readonly pbc::MapField<string, string> headers_ = new pbc::MapField<string, string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<string, string> Headers {
-      get { return headers_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as DiscoverGatewayModelsRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DiscoverGatewayModelsRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (ProviderId != other.ProviderId) return false;
-      if (ApiType != other.ApiType) return false;
-      if (BaseUrl != other.BaseUrl) return false;
-      if (ApiKey != other.ApiKey) return false;
-      if (!Headers.Equals(other.Headers)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (ProviderId.Length != 0) hash ^= ProviderId.GetHashCode();
-      if (ApiType.Length != 0) hash ^= ApiType.GetHashCode();
-      if (BaseUrl.Length != 0) hash ^= BaseUrl.GetHashCode();
-      if (ApiKey.Length != 0) hash ^= ApiKey.GetHashCode();
-      hash ^= Headers.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (ProviderId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(ProviderId);
-      }
-      if (ApiType.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(ApiType);
-      }
-      if (BaseUrl.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(BaseUrl);
-      }
-      if (ApiKey.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(ApiKey);
-      }
-      headers_.WriteTo(output, _map_headers_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ProviderId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(ProviderId);
-      }
-      if (ApiType.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(ApiType);
-      }
-      if (BaseUrl.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(BaseUrl);
-      }
-      if (ApiKey.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(ApiKey);
-      }
-      headers_.WriteTo(ref output, _map_headers_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (ProviderId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProviderId);
-      }
-      if (ApiType.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ApiType);
-      }
-      if (BaseUrl.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BaseUrl);
-      }
-      if (ApiKey.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ApiKey);
-      }
-      size += headers_.CalculateSize(_map_headers_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DiscoverGatewayModelsRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.ProviderId.Length != 0) {
-        ProviderId = other.ProviderId;
-      }
-      if (other.ApiType.Length != 0) {
-        ApiType = other.ApiType;
-      }
-      if (other.BaseUrl.Length != 0) {
-        BaseUrl = other.BaseUrl;
-      }
-      if (other.ApiKey.Length != 0) {
-        ApiKey = other.ApiKey;
-      }
-      headers_.MergeFrom(other.headers_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            ProviderId = input.ReadString();
-            break;
-          }
-          case 18: {
-            ApiType = input.ReadString();
-            break;
-          }
-          case 26: {
-            BaseUrl = input.ReadString();
-            break;
-          }
-          case 34: {
-            ApiKey = input.ReadString();
-            break;
-          }
-          case 42: {
-            headers_.AddEntriesFrom(input, _map_headers_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            ProviderId = input.ReadString();
-            break;
-          }
-          case 18: {
-            ApiType = input.ReadString();
-            break;
-          }
-          case 26: {
-            BaseUrl = input.ReadString();
-            break;
-          }
-          case 34: {
-            ApiKey = input.ReadString();
-            break;
-          }
-          case 42: {
-            headers_.AddEntriesFrom(ref input, _map_headers_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class DiscoverGatewayModelsResponse : pb::IMessage<DiscoverGatewayModelsResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<DiscoverGatewayModelsResponse> _parser = new pb::MessageParser<DiscoverGatewayModelsResponse>(() => new DiscoverGatewayModelsResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DiscoverGatewayModelsResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[53]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiscoverGatewayModelsResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiscoverGatewayModelsResponse(DiscoverGatewayModelsResponse other) : this() {
-      ok_ = other.ok_;
-      error_ = other.error_;
-      models_ = other.models_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiscoverGatewayModelsResponse Clone() {
-      return new DiscoverGatewayModelsResponse(this);
-    }
-
-    /// <summary>Field number for the "ok" field.</summary>
-    public const int OkFieldNumber = 1;
-    private bool ok_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Ok {
-      get { return ok_; }
-      set {
-        ok_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 2;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "models" field.</summary>
-    public const int ModelsFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::Easyrpc.Agent.V1.ProviderModel> _repeated_models_codec
-        = pb::FieldCodec.ForMessage(26, global::Easyrpc.Agent.V1.ProviderModel.Parser);
-    private readonly pbc::RepeatedField<global::Easyrpc.Agent.V1.ProviderModel> models_ = new pbc::RepeatedField<global::Easyrpc.Agent.V1.ProviderModel>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Easyrpc.Agent.V1.ProviderModel> Models {
-      get { return models_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as DiscoverGatewayModelsResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DiscoverGatewayModelsResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Ok != other.Ok) return false;
-      if (Error != other.Error) return false;
-      if(!models_.Equals(other.models_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Ok != false) hash ^= Ok.GetHashCode();
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
-      hash ^= models_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Ok != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Ok);
-      }
-      if (Error.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Error);
-      }
-      models_.WriteTo(output, _repeated_models_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Ok != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Ok);
-      }
-      if (Error.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Error);
-      }
-      models_.WriteTo(ref output, _repeated_models_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (Ok != false) {
-        size += 1 + 1;
-      }
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
-      size += models_.CalculateSize(_repeated_models_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DiscoverGatewayModelsResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Ok != false) {
-        Ok = other.Ok;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
-      }
-      models_.Add(other.models_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Ok = input.ReadBool();
-            break;
-          }
-          case 18: {
-            Error = input.ReadString();
-            break;
-          }
-          case 26: {
-            models_.AddEntriesFrom(input, _repeated_models_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Ok = input.ReadBool();
-            break;
-          }
-          case 18: {
-            Error = input.ReadString();
-            break;
-          }
-          case 26: {
-            models_.AddEntriesFrom(ref input, _repeated_models_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeleteProviderRequest : pb::IMessage<DeleteProviderRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15099,7 +14668,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[54]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[52]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15297,7 +14866,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[55]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[53]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15495,7 +15064,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[56]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[54]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15594,6 +15163,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "variant" field.</summary>
     public const int VariantFieldNumber = 6;
     private string variant_ = "";
+    /// <summary>
+    /// Optional reasoning variant id to exercise in the test generation.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variant {
@@ -15606,6 +15178,10 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "capability" field.</summary>
     public const int CapabilityFieldNumber = 7;
     private string capability_ = "";
+    /// <summary>
+    /// What the model under test generates: "text" (default). Only text models
+    /// are testable today; image/video/speech are rejected with a clear message.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Capability {
@@ -15915,7 +15491,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[57]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[55]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16135,6 +15711,11 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// ListModels returns the models of ONE provider. provider_id is required: the
+  /// server rejects an empty value (InvalidArgument) so a global flat model list
+  /// — which would surface duplicate ids across providers — is never produced.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListModelsRequest : pb::IMessage<ListModelsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -16150,7 +15731,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[58]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[56]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16348,7 +15929,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[59]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[57]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16535,7 +16116,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[60]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[58]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16597,6 +16178,10 @@ namespace Easyrpc.Agent.V1 {
     private static readonly pb::FieldCodec<global::Easyrpc.Agent.V1.ModelVariant> _repeated_variants_codec
         = pb::FieldCodec.ForMessage(26, global::Easyrpc.Agent.V1.ModelVariant.Parser);
     private readonly pbc::RepeatedField<global::Easyrpc.Agent.V1.ModelVariant> variants_ = new pbc::RepeatedField<global::Easyrpc.Agent.V1.ModelVariant>();
+    /// <summary>
+    /// Reasoning variants offered by this model (from the models.dev catalog).
+    /// Empty when the model has no reasoning options or is not in the catalog.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::Easyrpc.Agent.V1.ModelVariant> Variants {
@@ -16606,6 +16191,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "context_limit" field.</summary>
     public const int ContextLimitFieldNumber = 4;
     private long contextLimit_;
+    /// <summary>
+    /// Context window (tokens) configured for this provider model.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ContextLimit {
@@ -16818,6 +16406,10 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// A selectable reasoning variant for a model (e.g. low/medium/high/max, or a
+  /// fast mode). `id` is passed back on CreateSession/SetModel/UpdateSettings.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ModelVariant : pb::IMessage<ModelVariant>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -16833,7 +16425,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[61]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[59]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17090,6 +16682,11 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// ListPresets lists presets. When locale is set (e.g. "zh"), each preset's
+  /// system_prompt is resolved from its i18n map for that locale, falling back
+  /// to the default prompt.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListPresetsRequest : pb::IMessage<ListPresetsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -17105,7 +16702,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[62]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[60]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17303,7 +16900,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[63]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[61]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17490,7 +17087,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[64]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[62]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17697,7 +17294,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[65]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[63]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17895,7 +17492,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[66]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[64]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18093,7 +17690,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[67]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[65]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18291,7 +17888,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[68]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[66]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18489,7 +18086,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[69]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[67]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18724,7 +18321,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[70]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[68]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18922,7 +18519,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[71]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[69]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19157,7 +18754,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[72]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[70]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19392,7 +18989,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[73]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[71]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19590,7 +19187,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[74]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[72]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19788,7 +19385,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[75]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[73]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19975,7 +19572,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[76]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[74]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20136,7 +19733,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[77]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[75]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20343,7 +19940,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[78]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[76]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20550,7 +20147,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[79]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[77]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20748,7 +20345,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[80]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[78]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21029,7 +20626,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[81]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[79]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21227,7 +20824,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[82]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[80]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21471,7 +21068,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[83]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[81]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21706,7 +21303,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[84]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[82]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21742,6 +21339,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "code" field.</summary>
     public const int CodeFieldNumber = 1;
     private string code_ = "";
+    /// <summary>
+    /// optional; empty => server mints one
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Code {
@@ -22015,7 +21615,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[85]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[83]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22250,7 +21850,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[86]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[84]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22448,7 +22048,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[87]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[85]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22720,7 +22320,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[88]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[86]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22918,7 +22518,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[89]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[87]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23190,7 +22790,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[90]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[88]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23351,7 +22951,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[91]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[89]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23558,7 +23158,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[92]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[90]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23719,7 +23319,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[93]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[91]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23939,6 +23539,10 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// Tenant is one isolation domain. `id` is the plaintext isolation key used on
+  /// the wire (abc.&lt;id>.&lt;...>) and in the database.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Tenant : pb::IMessage<Tenant>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -23954,7 +23558,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[94]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[92]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24015,6 +23619,10 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "disabled" field.</summary>
     public const int DisabledFieldNumber = 3;
     private bool disabled_;
+    /// <summary>
+    /// A disabled tenant's tokens stop authenticating (fail-closed); its data is
+    /// retained. Re-enable by clearing this flag.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Disabled {
@@ -24285,6 +23893,10 @@ namespace Easyrpc.Agent.V1 {
 
   }
 
+  /// <summary>
+  /// TenantToken is a bearer credential minted for one tenant. The plaintext is
+  /// returned ONLY at issue/rotate time; the server stores just its sha256.
+  /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TenantToken : pb::IMessage<TenantToken>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -24300,7 +23912,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[95]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[93]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24683,7 +24295,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[96]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[94]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24844,7 +24456,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[97]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[95]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25031,7 +24643,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[98]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[96]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25065,6 +24677,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
     private string id_ = "";
+    /// <summary>
+    /// Plaintext tenant id: ^[A-Za-z0-9_-]{1,64}$.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Id {
@@ -25266,7 +24881,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[99]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[97]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25312,6 +24927,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "token" field.</summary>
     public const int TokenFieldNumber = 2;
     private string token_ = "";
+    /// <summary>
+    /// The bootstrap token minted for the new tenant (plaintext, shown once).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Token {
@@ -25511,7 +25129,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[100]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[98]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25813,7 +25431,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[101]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[99]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26020,7 +25638,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[102]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[100]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26218,7 +25836,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[103]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[101]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26416,7 +26034,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[104]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[102]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26651,7 +26269,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[105]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[103]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26697,6 +26315,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "plaintext" field.</summary>
     public const int PlaintextFieldNumber = 2;
     private string plaintext_ = "";
+    /// <summary>
+    /// The plaintext token (shown once; never retrievable again).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Plaintext {
@@ -26895,7 +26516,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[106]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[104]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -27093,7 +26714,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[107]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[105]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -27280,7 +26901,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[108]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[106]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -27478,7 +27099,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[109]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[107]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -27676,7 +27297,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[110]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[108]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -27874,7 +27495,7 @@ namespace Easyrpc.Agent.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[111]; }
+      get { return global::Easyrpc.Agent.V1.AgentReflection.Descriptor.MessageTypes[109]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -27920,6 +27541,9 @@ namespace Easyrpc.Agent.V1 {
     /// <summary>Field number for the "plaintext" field.</summary>
     public const int PlaintextFieldNumber = 2;
     private string plaintext_ = "";
+    /// <summary>
+    /// The new plaintext token (shown once).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Plaintext {

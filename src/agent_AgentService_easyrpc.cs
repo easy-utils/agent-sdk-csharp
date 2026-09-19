@@ -8,244 +8,353 @@ using Google.Protobuf;
 
 namespace EasyRpc {
   public class AgentServiceClient {
+    public Dictionary<string, List<string>> LastTrailers { get; private set; } = new();
     private readonly Transport _t;
     public AgentServiceClient(Transport t) { _t = t; }
 
-    public async Task<HealthResponse> health(HealthRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Health", Body = req.ToByteArray() });
+    public async Task<HealthResponse> health(HealthRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Health", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return HealthResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<HealthResponse>(res.Body, kind);
     }
 
-    public async Task<ListSessionsResponse> listSessions(ListSessionsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListSessions", Body = req.ToByteArray() });
+    public async Task<ListSessionsResponse> listSessions(ListSessionsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListSessions", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListSessionsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListSessionsResponse>(res.Body, kind);
     }
 
-    public async Task<CreateSessionResponse> createSession(CreateSessionRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/CreateSession", Body = req.ToByteArray() });
+    public async Task<CreateSessionResponse> createSession(CreateSessionRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/CreateSession", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return CreateSessionResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<CreateSessionResponse>(res.Body, kind);
     }
 
-    public async Task<GetSessionResponse> getSession(GetSessionRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetSession", Body = req.ToByteArray() });
+    public async Task<GetSessionResponse> getSession(GetSessionRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetSession", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return GetSessionResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<GetSessionResponse>(res.Body, kind);
     }
 
-    public async Task<DeleteSessionResponse> deleteSession(DeleteSessionRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DeleteSession", Body = req.ToByteArray() });
+    public async Task<DeleteSessionResponse> deleteSession(DeleteSessionRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DeleteSession", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return DeleteSessionResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<DeleteSessionResponse>(res.Body, kind);
     }
 
-    public async Task<ListMessagesResponse> listMessages(ListMessagesRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListMessages", Body = req.ToByteArray() });
+    public async Task<ListMessagesResponse> listMessages(ListMessagesRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListMessages", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListMessagesResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListMessagesResponse>(res.Body, kind);
     }
 
-    public async IAsyncEnumerable<PromptResponse> prompt(PromptRequest req) {
-      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/Prompt", Body = req.ToByteArray() });
-      await foreach (var m in stream) { yield return PromptResponse.Parser.ParseFrom(m); }
+    public async IAsyncEnumerable<PromptResponse> prompt(PromptRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(true, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/Prompt", Headers = md, Body = EasyRpc.Protocol.Frame(EasyRpc.Protocol.EncodeMsg(req, kind)) });
+      await foreach (var m in stream) { yield return EasyRpc.Protocol.DecodeMsg<PromptResponse>(m, kind); }
     }
 
-    public async IAsyncEnumerable<WatchSessionResponse> watchSession(WatchSessionRequest req) {
-      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/WatchSession", Body = req.ToByteArray() });
-      await foreach (var m in stream) { yield return WatchSessionResponse.Parser.ParseFrom(m); }
+    public async IAsyncEnumerable<WatchSessionResponse> watchSession(WatchSessionRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(true, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/WatchSession", Headers = md, Body = EasyRpc.Protocol.Frame(EasyRpc.Protocol.EncodeMsg(req, kind)) });
+      await foreach (var m in stream) { yield return EasyRpc.Protocol.DecodeMsg<WatchSessionResponse>(m, kind); }
     }
 
-    public async IAsyncEnumerable<WatchSessionsResponse> watchSessions(WatchSessionsRequest req) {
-      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/WatchSessions", Body = req.ToByteArray() });
-      await foreach (var m in stream) { yield return WatchSessionsResponse.Parser.ParseFrom(m); }
+    public async IAsyncEnumerable<WatchSessionsResponse> watchSessions(WatchSessionsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(true, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/WatchSessions", Headers = md, Body = EasyRpc.Protocol.Frame(EasyRpc.Protocol.EncodeMsg(req, kind)) });
+      await foreach (var m in stream) { yield return EasyRpc.Protocol.DecodeMsg<WatchSessionsResponse>(m, kind); }
     }
 
-    public async Task<ForkResponse> fork(ForkRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Fork", Body = req.ToByteArray() });
+    public async Task<ForkResponse> fork(ForkRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Fork", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ForkResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ForkResponse>(res.Body, kind);
     }
 
-    public async Task<RenameResponse> rename(RenameRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Rename", Body = req.ToByteArray() });
+    public async Task<RenameResponse> rename(RenameRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Rename", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return RenameResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<RenameResponse>(res.Body, kind);
     }
 
-    public async Task<SetModelResponse> setModel(SetModelRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetModel", Body = req.ToByteArray() });
+    public async Task<SetModelResponse> setModel(SetModelRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetModel", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return SetModelResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<SetModelResponse>(res.Body, kind);
     }
 
-    public async Task<UndoResponse> undo(UndoRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Undo", Body = req.ToByteArray() });
+    public async Task<UndoResponse> undo(UndoRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Undo", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return UndoResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<UndoResponse>(res.Body, kind);
     }
 
-    public async Task<StateResponse> state(StateRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/State", Body = req.ToByteArray() });
+    public async Task<StateResponse> state(StateRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/State", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return StateResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<StateResponse>(res.Body, kind);
     }
 
-    public async Task<MailboxResponse> mailbox(MailboxRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Mailbox", Body = req.ToByteArray() });
+    public async Task<MailboxResponse> mailbox(MailboxRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Mailbox", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return MailboxResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<MailboxResponse>(res.Body, kind);
     }
 
-    public async Task<UpdateSettingsResponse> updateSettings(UpdateSettingsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/UpdateSettings", Body = req.ToByteArray() });
+    public async Task<UpdateSettingsResponse> updateSettings(UpdateSettingsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/UpdateSettings", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return UpdateSettingsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<UpdateSettingsResponse>(res.Body, kind);
     }
 
-    public async Task<InterruptResponse> interrupt(InterruptRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Interrupt", Body = req.ToByteArray() });
+    public async Task<InterruptResponse> interrupt(InterruptRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Interrupt", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return InterruptResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<InterruptResponse>(res.Body, kind);
     }
 
-    public async Task<CompactResponse> compact(CompactRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Compact", Body = req.ToByteArray() });
+    public async Task<CompactResponse> compact(CompactRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/Compact", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return CompactResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<CompactResponse>(res.Body, kind);
     }
 
-    public async Task<ListProvidersResponse> listProviders(ListProvidersRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListProviders", Body = req.ToByteArray() });
+    public async Task<ListProvidersResponse> listProviders(ListProvidersRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListProviders", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListProvidersResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListProvidersResponse>(res.Body, kind);
     }
 
-    public async Task<ListProvidersCatalogResponse> listProvidersCatalog(ListProvidersCatalogRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListProvidersCatalog", Body = req.ToByteArray() });
+    public async Task<ListProvidersCatalogResponse> listProvidersCatalog(ListProvidersCatalogRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListProvidersCatalog", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListProvidersCatalogResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListProvidersCatalogResponse>(res.Body, kind);
     }
 
-    public async Task<RegisterProviderResponse> registerProvider(RegisterProviderRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/RegisterProvider", Body = req.ToByteArray() });
+    public async Task<RegisterProviderResponse> registerProvider(RegisterProviderRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/RegisterProvider", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return RegisterProviderResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<RegisterProviderResponse>(res.Body, kind);
     }
 
-    public async Task<DiscoverGatewayModelsResponse> discoverGatewayModels(DiscoverGatewayModelsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DiscoverGatewayModels", Body = req.ToByteArray() });
+    public async Task<DeleteProviderResponse> deleteProvider(DeleteProviderRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DeleteProvider", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return DiscoverGatewayModelsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<DeleteProviderResponse>(res.Body, kind);
     }
 
-    public async Task<DeleteProviderResponse> deleteProvider(DeleteProviderRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DeleteProvider", Body = req.ToByteArray() });
+    public async Task<TestProviderResponse> testProvider(TestProviderRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/TestProvider", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return DeleteProviderResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<TestProviderResponse>(res.Body, kind);
     }
 
-    public async Task<TestProviderResponse> testProvider(TestProviderRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/TestProvider", Body = req.ToByteArray() });
+    public async Task<ListModelsResponse> listModels(ListModelsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListModels", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return TestProviderResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListModelsResponse>(res.Body, kind);
     }
 
-    public async Task<ListModelsResponse> listModels(ListModelsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListModels", Body = req.ToByteArray() });
+    public async Task<ListPresetsResponse> listPresets(ListPresetsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListPresets", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListModelsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListPresetsResponse>(res.Body, kind);
     }
 
-    public async Task<ListPresetsResponse> listPresets(ListPresetsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListPresets", Body = req.ToByteArray() });
+    public async Task<UpsertPresetResponse> upsertPreset(UpsertPresetRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/UpsertPreset", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListPresetsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<UpsertPresetResponse>(res.Body, kind);
     }
 
-    public async Task<UpsertPresetResponse> upsertPreset(UpsertPresetRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/UpsertPreset", Body = req.ToByteArray() });
+    public async Task<DeletePresetResponse> deletePreset(DeletePresetRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DeletePreset", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return UpsertPresetResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<DeletePresetResponse>(res.Body, kind);
     }
 
-    public async Task<DeletePresetResponse> deletePreset(DeletePresetRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/DeletePreset", Body = req.ToByteArray() });
+    public async Task<PreviewPresetResponse> previewPreset(PreviewPresetRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/PreviewPreset", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return DeletePresetResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<PreviewPresetResponse>(res.Body, kind);
     }
 
-    public async Task<PreviewPresetResponse> previewPreset(PreviewPresetRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/PreviewPreset", Body = req.ToByteArray() });
+    public async Task<GetConfigResponse> getConfig(GetConfigRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetConfig", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return PreviewPresetResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<GetConfigResponse>(res.Body, kind);
     }
 
-    public async Task<GetConfigResponse> getConfig(GetConfigRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetConfig", Body = req.ToByteArray() });
+    public async Task<SetConfigResponse> setConfig(SetConfigRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetConfig", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return GetConfigResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<SetConfigResponse>(res.Body, kind);
     }
 
-    public async Task<SetConfigResponse> setConfig(SetConfigRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetConfig", Body = req.ToByteArray() });
+    public async Task<ListToolsResponse> listTools(ListToolsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListTools", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return SetConfigResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListToolsResponse>(res.Body, kind);
     }
 
-    public async Task<ListToolsResponse> listTools(ListToolsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/ListTools", Body = req.ToByteArray() });
+    public async Task<GetToolConfigResponse> getToolConfig(GetToolConfigRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetToolConfig", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListToolsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<GetToolConfigResponse>(res.Body, kind);
     }
 
-    public async Task<GetToolConfigResponse> getToolConfig(GetToolConfigRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetToolConfig", Body = req.ToByteArray() });
+    public async Task<SetToolConfigResponse> setToolConfig(SetToolConfigRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetToolConfig", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return GetToolConfigResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<SetToolConfigResponse>(res.Body, kind);
     }
 
-    public async Task<SetToolConfigResponse> setToolConfig(SetToolConfigRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetToolConfig", Body = req.ToByteArray() });
+    public async Task<SetExtensionConfigResponse> setExtensionConfig(SetExtensionConfigRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetExtensionConfig", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return SetToolConfigResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<SetExtensionConfigResponse>(res.Body, kind);
     }
 
-    public async Task<SetExtensionConfigResponse> setExtensionConfig(SetExtensionConfigRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/SetExtensionConfig", Body = req.ToByteArray() });
+    public async Task<UploadFileResponse> uploadFile(UploadFileRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/UploadFile", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return SetExtensionConfigResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<UploadFileResponse>(res.Body, kind);
     }
 
-    public async Task<UploadFileResponse> uploadFile(UploadFileRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/UploadFile", Body = req.ToByteArray() });
+    public async Task<IngestFileResponse> ingestFile(IngestFileRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/IngestFile", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return UploadFileResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<IngestFileResponse>(res.Body, kind);
     }
 
-    public async Task<IngestFileResponse> ingestFile(IngestFileRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/IngestFile", Body = req.ToByteArray() });
+    public async Task<GetFileResponse> getFile(GetFileRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetFile", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return IngestFileResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<GetFileResponse>(res.Body, kind);
     }
 
-    public async Task<GetFileResponse> getFile(GetFileRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetFile", Body = req.ToByteArray() });
+    public async Task<GetFileMetaResponse> getFileMeta(GetFileMetaRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetFileMeta", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return GetFileResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<GetFileMetaResponse>(res.Body, kind);
     }
 
-    public async Task<GetFileMetaResponse> getFileMeta(GetFileMetaRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetFileMeta", Body = req.ToByteArray() });
+    public async Task<GetAgentConfigResponse> getAgentConfig(GetAgentConfigRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetAgentConfig", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return GetFileMetaResponse.Parser.ParseFrom(res.Body);
-    }
-
-    public async Task<GetAgentConfigResponse> getAgentConfig(GetAgentConfigRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AgentService/GetAgentConfig", Body = req.ToByteArray() });
-      if (res.Error != null) throw res.Error;
-      return GetAgentConfigResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<GetAgentConfigResponse>(res.Body, kind);
     }
 
   }

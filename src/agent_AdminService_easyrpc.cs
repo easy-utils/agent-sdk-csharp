@@ -8,55 +8,80 @@ using Google.Protobuf;
 
 namespace EasyRpc {
   public class AdminServiceClient {
+    public Dictionary<string, List<string>> LastTrailers { get; private set; } = new();
     private readonly Transport _t;
     public AdminServiceClient(Transport t) { _t = t; }
 
-    public async Task<ListTenantsResponse> listTenants(ListTenantsRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/ListTenants", Body = req.ToByteArray() });
+    public async Task<ListTenantsResponse> listTenants(ListTenantsRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/ListTenants", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListTenantsResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListTenantsResponse>(res.Body, kind);
     }
 
-    public async Task<CreateTenantResponse> createTenant(CreateTenantRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/CreateTenant", Body = req.ToByteArray() });
+    public async Task<CreateTenantResponse> createTenant(CreateTenantRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/CreateTenant", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return CreateTenantResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<CreateTenantResponse>(res.Body, kind);
     }
 
-    public async Task<UpdateTenantResponse> updateTenant(UpdateTenantRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/UpdateTenant", Body = req.ToByteArray() });
+    public async Task<UpdateTenantResponse> updateTenant(UpdateTenantRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/UpdateTenant", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return UpdateTenantResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<UpdateTenantResponse>(res.Body, kind);
     }
 
-    public async Task<DeleteTenantResponse> deleteTenant(DeleteTenantRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/DeleteTenant", Body = req.ToByteArray() });
+    public async Task<DeleteTenantResponse> deleteTenant(DeleteTenantRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/DeleteTenant", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return DeleteTenantResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<DeleteTenantResponse>(res.Body, kind);
     }
 
-    public async Task<IssueTenantTokenResponse> issueTenantToken(IssueTenantTokenRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/IssueTenantToken", Body = req.ToByteArray() });
+    public async Task<IssueTenantTokenResponse> issueTenantToken(IssueTenantTokenRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/IssueTenantToken", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return IssueTenantTokenResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<IssueTenantTokenResponse>(res.Body, kind);
     }
 
-    public async Task<ListTenantTokensResponse> listTenantTokens(ListTenantTokensRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/ListTenantTokens", Body = req.ToByteArray() });
+    public async Task<ListTenantTokensResponse> listTenantTokens(ListTenantTokensRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/ListTenantTokens", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return ListTenantTokensResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<ListTenantTokensResponse>(res.Body, kind);
     }
 
-    public async Task<RevokeTenantTokenResponse> revokeTenantToken(RevokeTenantTokenRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/RevokeTenantToken", Body = req.ToByteArray() });
+    public async Task<RevokeTenantTokenResponse> revokeTenantToken(RevokeTenantTokenRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/RevokeTenantToken", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return RevokeTenantTokenResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<RevokeTenantTokenResponse>(res.Body, kind);
     }
 
-    public async Task<RotateTenantTokenResponse> rotateTenantToken(RotateTenantTokenRequest req) {
-      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/RotateTenantToken", Body = req.ToByteArray() });
+    public async Task<RotateTenantTokenResponse> rotateTenantToken(RotateTenantTokenRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var res = await _t.Send(new Request { Url = "/agent.v1.AdminService/RotateTenantToken", Headers = md, Body = EasyRpc.Protocol.EncodeMsg(req, kind) });
+      LastTrailers = res.Trailers;
       if (res.Error != null) throw res.Error;
-      return RotateTenantTokenResponse.Parser.ParseFrom(res.Body);
+      return EasyRpc.Protocol.DecodeMsg<RotateTenantTokenResponse>(res.Body, kind);
     }
 
   }
