@@ -348,6 +348,13 @@ namespace EasyRpc {
       return EasyRpc.Protocol.DecodeMsg<GetFileMetaResponse>(res.Body, kind);
     }
 
+    public async IAsyncEnumerable<FileChunk> getFileStream(GetFileRequest req, string kind = "proto") {
+      var ct = EasyRpc.Protocol.ContentTypeFor(true, kind);
+      var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
+      var stream = await _t.OpenStream(new Request { Url = "/agent.v1.AgentService/GetFileStream", Headers = md, Body = EasyRpc.Protocol.Frame(EasyRpc.Protocol.EncodeMsg(req, kind)) });
+      await foreach (var m in stream) { yield return EasyRpc.Protocol.DecodeMsg<FileChunk>(m, kind); }
+    }
+
     public async Task<GetAgentConfigResponse> getAgentConfig(GetAgentConfigRequest req, string kind = "proto") {
       var ct = EasyRpc.Protocol.ContentTypeFor(false, kind);
       var md = new Dictionary<string, List<string>> { ["content-type"] = new List<string> { ct } };
